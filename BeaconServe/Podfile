@@ -9,5 +9,6 @@ target "BeaconServe" do
 pod 'IQKeyboardManager'
 pod 'RSTCoreDataKit'
 pod 'PureLayout'
+pod 'M13Checkbox'
 
 end

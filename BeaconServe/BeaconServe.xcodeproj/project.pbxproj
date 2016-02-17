@@ -9,11 +9,28 @@
 /* Begin PBXBuildFile section */
 		0497F25A1C726B9D009690DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497F2591C726B9D009690DE /* main.m */; };
 		0497F25D1C726B9D009690DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497F25C1C726B9D009690DE /* AppDelegate.m */; };
-		0497F2601C726B9D009690DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497F25F1C726B9D009690DE /* ViewController.m */; };
 		0497F2631C726B9D009690DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2611C726B9D009690DE /* Main.storyboard */; };
 		0497F2661C726B9D009690DE /* BeaconServe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0497F2641C726B9D009690DE /* BeaconServe.xcdatamodeld */; };
 		0497F2681C726B9D009690DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2671C726B9D009690DE /* Assets.xcassets */; };
 		0497F26B1C726B9D009690DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2691C726B9D009690DE /* LaunchScreen.storyboard */; };
+		0497F27F1C72856F009690DE /* camera_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2781C72856F009690DE /* camera_button.png */; };
+		0497F2801C72856F009690DE /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2791C72856F009690DE /* login_background.png */; };
+		0497F2811C72856F009690DE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F27A1C72856F009690DE /* logo.png */; };
+		0497F2821C72856F009690DE /* map_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F27B1C72856F009690DE /* map_icon1.png */; };
+		0497F2831C72856F009690DE /* map_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F27C1C72856F009690DE /* map_icon2.png */; };
+		0497F2841C72856F009690DE /* map_icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F27D1C72856F009690DE /* map_icon3.png */; };
+		0497F2851C72856F009690DE /* menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F27E1C72856F009690DE /* menu_button.png */; };
+		0497F2881C7287F2009690DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497F2871C7287F2009690DE /* LoginViewController.m */; };
+		0497F28A1C728F7F009690DE /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497F2891C728F7F009690DE /* border.png */; };
+		049D1E151C73FAA1002B1432 /* ProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E141C73FAA1002B1432 /* ProjectsViewController.m */; };
+		049D1E191C74026D002B1432 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E181C74026D002B1432 /* UIColor+HexString.m */; };
+		049D1E1C1C7403D4002B1432 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 049D1E1B1C7403D4002B1432 /* placeholder.png */; };
+		049D1E201C740DE1002B1432 /* ProjectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E1F1C740DE1002B1432 /* ProjectCollectionViewCell.m */; };
+		049D1E231C741EA7002B1432 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E221C741EA7002B1432 /* DirectionViewController.m */; };
+		049D1E251C742667002B1432 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049D1E241C742667002B1432 /* MapKit.framework */; };
+		049D1E271C74266C002B1432 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049D1E261C74266C002B1432 /* CoreLocation.framework */; };
+		049D1E291C742672002B1432 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049D1E281C742672002B1432 /* CoreBluetooth.framework */; };
+		049D1E2C1C743114002B1432 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E2B1C743114002B1432 /* InstructionViewController.m */; };
 		8ADB5145C6208685FBCD4B1F /* Pods_BeaconServe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287239413C14D3220CD324BB /* Pods_BeaconServe.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,13 +39,36 @@
 		0497F2591C726B9D009690DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0497F25B1C726B9D009690DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0497F25C1C726B9D009690DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0497F25E1C726B9D009690DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0497F25F1C726B9D009690DE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0497F2621C726B9D009690DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0497F2651C726B9D009690DE /* BeaconServe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeaconServe.xcdatamodel; sourceTree = "<group>"; };
 		0497F2671C726B9D009690DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0497F26A1C726B9D009690DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0497F26C1C726B9D009690DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0497F2781C72856F009690DE /* camera_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_button.png; path = resource/images/camera_button.png; sourceTree = "<group>"; };
+		0497F2791C72856F009690DE /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_background.png; path = resource/images/login_background.png; sourceTree = "<group>"; };
+		0497F27A1C72856F009690DE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = resource/images/logo.png; sourceTree = "<group>"; };
+		0497F27B1C72856F009690DE /* map_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon1.png; path = resource/images/map_icon1.png; sourceTree = "<group>"; };
+		0497F27C1C72856F009690DE /* map_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon2.png; path = resource/images/map_icon2.png; sourceTree = "<group>"; };
+		0497F27D1C72856F009690DE /* map_icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon3.png; path = resource/images/map_icon3.png; sourceTree = "<group>"; };
+		0497F27E1C72856F009690DE /* menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_button.png; path = resource/images/menu_button.png; sourceTree = "<group>"; };
+		0497F2861C7287F2009690DE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontroller/LoginViewController.h; sourceTree = "<group>"; };
+		0497F2871C7287F2009690DE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontroller/LoginViewController.m; sourceTree = "<group>"; };
+		0497F2891C728F7F009690DE /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border.png; path = resource/images/border.png; sourceTree = "<group>"; };
+		049D1E131C73FAA1002B1432 /* ProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsViewController.h; path = viewcontroller/ProjectsViewController.h; sourceTree = "<group>"; };
+		049D1E141C73FAA1002B1432 /* ProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsViewController.m; path = viewcontroller/ProjectsViewController.m; sourceTree = "<group>"; };
+		049D1E171C74026D002B1432 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		049D1E181C74026D002B1432 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		049D1E1A1C740299002B1432 /* BeaconServe.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconServe.pch; sourceTree = "<group>"; };
+		049D1E1B1C7403D4002B1432 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = resource/images/placeholder.png; sourceTree = "<group>"; };
+		049D1E1E1C740DE1002B1432 /* ProjectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectCollectionViewCell.h; path = view/tablecell/ProjectCollectionViewCell.h; sourceTree = "<group>"; };
+		049D1E1F1C740DE1002B1432 /* ProjectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectCollectionViewCell.m; path = view/tablecell/ProjectCollectionViewCell.m; sourceTree = "<group>"; };
+		049D1E211C741EA7002B1432 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DirectionViewController.h; path = viewcontroller/DirectionViewController.h; sourceTree = "<group>"; };
+		049D1E221C741EA7002B1432 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DirectionViewController.m; path = viewcontroller/DirectionViewController.m; sourceTree = "<group>"; };
+		049D1E241C742667002B1432 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		049D1E261C74266C002B1432 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		049D1E281C742672002B1432 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		049D1E2A1C743114002B1432 /* InstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionViewController.h; path = viewcontroller/InstructionViewController.h; sourceTree = "<group>"; };
+		049D1E2B1C743114002B1432 /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionViewController.m; path = viewcontroller/InstructionViewController.m; sourceTree = "<group>"; };
 		287239413C14D3220CD324BB /* Pods_BeaconServe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconServe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F637F5A460DDEB96ED7F8 /* Pods-BeaconServe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.release.xcconfig"; sourceTree = "<group>"; };
 		614F2A3744991BE36FB00549 /* Pods-BeaconServe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -39,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049D1E291C742672002B1432 /* CoreBluetooth.framework in Frameworks */,
+				049D1E271C74266C002B1432 /* CoreLocation.framework in Frameworks */,
+				049D1E251C742667002B1432 /* MapKit.framework in Frameworks */,
 				8ADB5145C6208685FBCD4B1F /* Pods_BeaconServe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,10 +110,13 @@
 		0497F2571C726B9D009690DE /* BeaconServe */ = {
 			isa = PBXGroup;
 			children = (
+				0497F2761C72855A009690DE /* resource */,
+				0497F2751C728552009690DE /* utility */,
+				0497F2741C72854C009690DE /* viewcontroller */,
+				0497F2731C728547009690DE /* model */,
+				0497F2721C728543009690DE /* view */,
 				0497F25B1C726B9D009690DE /* AppDelegate.h */,
 				0497F25C1C726B9D009690DE /* AppDelegate.m */,
-				0497F25E1C726B9D009690DE /* ViewController.h */,
-				0497F25F1C726B9D009690DE /* ViewController.m */,
 				0497F2611C726B9D009690DE /* Main.storyboard */,
 				0497F2671C726B9D009690DE /* Assets.xcassets */,
 				0497F2691C726B9D009690DE /* LaunchScreen.storyboard */,
@@ -85,8 +131,90 @@
 			isa = PBXGroup;
 			children = (
 				0497F2591C726B9D009690DE /* main.m */,
+				049D1E1A1C740299002B1432 /* BeaconServe.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0497F2721C728543009690DE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				049D1E1D1C740DBE002B1432 /* tablecell */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		0497F2731C728547009690DE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		0497F2741C72854C009690DE /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				0497F2861C7287F2009690DE /* LoginViewController.h */,
+				0497F2871C7287F2009690DE /* LoginViewController.m */,
+				049D1E131C73FAA1002B1432 /* ProjectsViewController.h */,
+				049D1E141C73FAA1002B1432 /* ProjectsViewController.m */,
+				049D1E211C741EA7002B1432 /* DirectionViewController.h */,
+				049D1E221C741EA7002B1432 /* DirectionViewController.m */,
+				049D1E2A1C743114002B1432 /* InstructionViewController.h */,
+				049D1E2B1C743114002B1432 /* InstructionViewController.m */,
+			);
+			name = viewcontroller;
+			sourceTree = "<group>";
+		};
+		0497F2751C728552009690DE /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				049D1E161C74026D002B1432 /* HexColor */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
+		0497F2761C72855A009690DE /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				0497F2771C728563009690DE /* images */,
+			);
+			name = resource;
+			sourceTree = "<group>";
+		};
+		0497F2771C728563009690DE /* images */ = {
+			isa = PBXGroup;
+			children = (
+				049D1E1B1C7403D4002B1432 /* placeholder.png */,
+				0497F2891C728F7F009690DE /* border.png */,
+				0497F2781C72856F009690DE /* camera_button.png */,
+				0497F2791C72856F009690DE /* login_background.png */,
+				0497F27A1C72856F009690DE /* logo.png */,
+				0497F27B1C72856F009690DE /* map_icon1.png */,
+				0497F27C1C72856F009690DE /* map_icon2.png */,
+				0497F27D1C72856F009690DE /* map_icon3.png */,
+				0497F27E1C72856F009690DE /* menu_button.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		049D1E161C74026D002B1432 /* HexColor */ = {
+			isa = PBXGroup;
+			children = (
+				049D1E171C74026D002B1432 /* UIColor+HexString.h */,
+				049D1E181C74026D002B1432 /* UIColor+HexString.m */,
+			);
+			name = HexColor;
+			path = unitity/HexColor;
+			sourceTree = "<group>";
+		};
+		049D1E1D1C740DBE002B1432 /* tablecell */ = {
+			isa = PBXGroup;
+			children = (
+				049D1E1E1C740DE1002B1432 /* ProjectCollectionViewCell.h */,
+				049D1E1F1C740DE1002B1432 /* ProjectCollectionViewCell.m */,
+			);
+			name = tablecell;
 			sourceTree = "<group>";
 		};
 		AFC26251F19B72AC434F1AF5 /* Pods */ = {
@@ -101,6 +229,9 @@
 		F42AC60C2FB5090BEA361DD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				049D1E281C742672002B1432 /* CoreBluetooth.framework */,
+				049D1E261C74266C002B1432 /* CoreLocation.framework */,
+				049D1E241C742667002B1432 /* MapKit.framework */,
 				287239413C14D3220CD324BB /* Pods_BeaconServe.framework */,
 			);
 			name = Frameworks;
@@ -166,7 +297,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0497F28A1C728F7F009690DE /* border.png in Resources */,
+				049D1E1C1C7403D4002B1432 /* placeholder.png in Resources */,
+				0497F2831C72856F009690DE /* map_icon2.png in Resources */,
+				0497F2801C72856F009690DE /* login_background.png in Resources */,
+				0497F2851C72856F009690DE /* menu_button.png in Resources */,
+				0497F27F1C72856F009690DE /* camera_button.png in Resources */,
+				0497F2811C72856F009690DE /* logo.png in Resources */,
 				0497F26B1C726B9D009690DE /* LaunchScreen.storyboard in Resources */,
+				0497F2841C72856F009690DE /* map_icon3.png in Resources */,
+				0497F2821C72856F009690DE /* map_icon1.png in Resources */,
 				0497F2681C726B9D009690DE /* Assets.xcassets in Resources */,
 				0497F2631C726B9D009690DE /* Main.storyboard in Resources */,
 			);
@@ -227,8 +367,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0497F2601C726B9D009690DE /* ViewController.m in Sources */,
+				049D1E191C74026D002B1432 /* UIColor+HexString.m in Sources */,
+				049D1E151C73FAA1002B1432 /* ProjectsViewController.m in Sources */,
+				0497F2881C7287F2009690DE /* LoginViewController.m in Sources */,
 				0497F2661C726B9D009690DE /* BeaconServe.xcdatamodeld in Sources */,
+				049D1E2C1C743114002B1432 /* InstructionViewController.m in Sources */,
+				049D1E231C741EA7002B1432 /* DirectionViewController.m in Sources */,
+				049D1E201C740DE1002B1432 /* ProjectCollectionViewCell.m in Sources */,
 				0497F25D1C726B9D009690DE /* AppDelegate.m in Sources */,
 				0497F25A1C726B9D009690DE /* main.m in Sources */,
 			);
@@ -292,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -341,7 +486,9 @@
 			baseConfigurationReference = 614F2A3744991BE36FB00549 /* Pods-BeaconServe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = BeaconServe/BeaconServe.pch;
 				INFOPLIST_FILE = BeaconServe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VirtusVentures.BeaconServe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,7 +500,9 @@
 			baseConfigurationReference = 539F637F5A460DDEB96ED7F8 /* Pods-BeaconServe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = BeaconServe/BeaconServe.pch;
 				INFOPLIST_FILE = BeaconServe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VirtusVentures.BeaconServe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
