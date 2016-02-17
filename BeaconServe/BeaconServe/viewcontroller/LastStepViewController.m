@@ -1,30 +1,22 @@
 //
-//  InstructionViewController.m
+//  LastStepViewController.m
 //  BeaconServe
 //
-//  Created by AnCheng on 2/17/16.
+//  Created by AnCheng on 2/18/16.
 //  Copyright © 2016 Radu Vila. All rights reserved.
 //
 
-#import "InstructionViewController.h"
+#import "LastStepViewController.h"
 
-@interface InstructionViewController ()
+@interface LastStepViewController ()
 
 @end
 
-@implementation InstructionViewController
+@implementation LastStepViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationItem.hidesBackButton = YES;
-
-    CALayer *btnLayer = [self.continueBtn layer];
-    [btnLayer setMasksToBounds:YES];
-    [btnLayer setCornerRadius:3.0f];
-    btnLayer.borderWidth = 1.0;
-    btnLayer.borderColor = [UIColor clearColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,5 +34,10 @@
 }
 */
 
+- (IBAction)onMenu:(id)sender
+{
+    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
+    [self.navigationController popToViewController:vc animated:YES];
+}
 
 @end

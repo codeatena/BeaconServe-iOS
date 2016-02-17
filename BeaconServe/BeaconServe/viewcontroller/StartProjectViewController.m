@@ -1,26 +1,24 @@
 //
-//  InstructionViewController.m
+//  StartProjectViewController.m
 //  BeaconServe
 //
 //  Created by AnCheng on 2/17/16.
 //  Copyright © 2016 Radu Vila. All rights reserved.
 //
 
-#import "InstructionViewController.h"
+#import "StartProjectViewController.h"
 
-@interface InstructionViewController ()
+@interface StartProjectViewController ()
 
 @end
 
-@implementation InstructionViewController
+@implementation StartProjectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.hidesBackButton = YES;
-
-    CALayer *btnLayer = [self.continueBtn layer];
+    CALayer *btnLayer = [self.startBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];
     btnLayer.borderWidth = 1.0;
@@ -42,5 +40,10 @@
 }
 */
 
+- (IBAction)onMenu:(id)sender
+{
+    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
+    [self.navigationController popToViewController:vc animated:YES];
+}
 
 @end

@@ -1,33 +1,41 @@
 //
-//  DirectionViewController.m
+//  QuestionType3ViewController.m
 //  BeaconServe
 //
 //  Created by AnCheng on 2/17/16.
 //  Copyright © 2016 Radu Vila. All rights reserved.
 //
 
-#import "DirectionViewController.h"
-#import <MapKit/MapKit.h>
+#import "QuestionType3ViewController.h"
 
-@interface DirectionViewController () <MKMapViewDelegate>
-
-@property (nonatomic ,assign) IBOutlet MKMapView *mapView;
+@interface QuestionType3ViewController ()
 
 @end
 
-@implementation DirectionViewController
+@implementation QuestionType3ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.hidesBackButton = YES;
-
-    CALayer *btnLayer = [self.showBtn layer];
+    CALayer *btnLayer = [self.backBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];
     btnLayer.borderWidth = 1.0;
     btnLayer.borderColor = [UIColor clearColor].CGColor;
+    
+    btnLayer = [self.nextBtn layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:3.0f];
+    btnLayer.borderWidth = 1.0;
+    btnLayer.borderColor = [UIColor clearColor].CGColor;
+    
+    btnLayer = [self.answerTextView layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:3.0f];
+    btnLayer.borderWidth = 1.0;
+    btnLayer.borderColor = [UIColor colorWithHexString:@"#0B334F"].CGColor;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +57,11 @@
 {
     UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
     [self.navigationController popToViewController:vc animated:YES];
+}
+
+- (IBAction)onBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
