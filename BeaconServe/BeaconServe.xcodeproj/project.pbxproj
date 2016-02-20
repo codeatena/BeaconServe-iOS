@@ -38,6 +38,7 @@
 		049D1E3B1C74BC29002B1432 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3A1C74BC29002B1432 /* QuestionTableViewCell.m */; };
 		049D1E3E1C74F9B0002B1432 /* LastStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */; };
 		049D1E401C74FB60002B1432 /* camera_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 049D1E3F1C74FB60002B1432 /* camera_back.png */; };
+		04F0E60F1C78DD9A00A3D29B /* ProjectAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */; };
 		8ADB5145C6208685FBCD4B1F /* Pods_BeaconServe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287239413C14D3220CD324BB /* Pods_BeaconServe.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		049D1E3C1C74F9B0002B1432 /* LastStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastStepViewController.h; path = viewcontroller/LastStepViewController.h; sourceTree = "<group>"; };
 		049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LastStepViewController.m; path = viewcontroller/LastStepViewController.m; sourceTree = "<group>"; };
 		049D1E3F1C74FB60002B1432 /* camera_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_back.png; path = resource/images/camera_back.png; sourceTree = "<group>"; };
+		04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectAnnotation.h; path = model/ProjectAnnotation.h; sourceTree = "<group>"; };
+		04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectAnnotation.m; path = model/ProjectAnnotation.m; sourceTree = "<group>"; };
 		287239413C14D3220CD324BB /* Pods_BeaconServe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconServe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F637F5A460DDEB96ED7F8 /* Pods-BeaconServe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.release.xcconfig"; sourceTree = "<group>"; };
 		614F2A3744991BE36FB00549 /* Pods-BeaconServe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		0497F2731C728547009690DE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */,
+				04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F0E60F1C78DD9A00A3D29B /* ProjectAnnotation.m in Sources */,
 				049D1E191C74026D002B1432 /* UIColor+HexString.m in Sources */,
 				049D1E151C73FAA1002B1432 /* ProjectsViewController.m in Sources */,
 				0497F2881C7287F2009690DE /* LoginViewController.m in Sources */,
