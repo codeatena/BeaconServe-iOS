@@ -456,6 +456,11 @@
                                 <state key="normal" image="menu_button.png"/>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="086-8s-1oz">
+                            <connections>
+                                <segue destination="7rU-CL-dSl" kind="push" id="z9C-QP-bJJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
@@ -466,6 +471,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERv-aN-qfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607" y="276"/>
+        </scene>
+        <!--PROJECTS-->
+        <scene sceneID="Hft-9b-aSV">
+            <objects>
+                <viewController id="7rU-CL-dSl" customClass="AddProjectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kzl-6a-KrZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eVY-Uc-fMU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ppa-2X-637">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="PROJECTS" id="F0z-vK-PC6">
+                        <barButtonItem key="leftBarButtonItem" id="lys-vH-7oj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OPs-pj-pbU">
+                                <rect key="frame" x="16" y="7" width="22" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menu_button.png"/>
+                                <connections>
+                                    <action selector="onMenu:" destination="7rU-CL-dSl" eventType="touchUpInside" id="6iF-Q0-pCv"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqh-pj-bGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="269"/>
         </scene>
         <!--PROJECT NAME1-->
         <scene sceneID="LXZ-M9-8Na">

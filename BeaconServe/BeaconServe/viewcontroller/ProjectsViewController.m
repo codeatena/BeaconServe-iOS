@@ -23,7 +23,9 @@
     
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     spacer.width = 10; // for example shift right bar button to the right
-    self.navigationItem.leftBarButtonItems = @[spacer , _avatarItem];
+//    self.navigationItem.leftBarButtonItems = @[spacer , _avatarItem];
+    self.navigationItem.leftBarButtonItems = @[_avatarItem];
+
 }
 
 - (void)didReceiveMemoryWarning {

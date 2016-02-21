@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="ProjectEntity" representedClassName="ProjectEntity" syncable="YES">
+        <attribute name="picture1" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="picture2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="projectname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ProjectEntity" positionX="-63" positionY="-18" width="128" height="90"/>
+    </elements>
+</model>
