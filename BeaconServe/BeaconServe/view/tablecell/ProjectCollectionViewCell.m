@@ -26,4 +26,10 @@
     [self.cellDelegate doSelect:self];
 }
 
+- (void)setEntity:(ProjectEntity *)entity
+{
+    _nameLbl.text = entity.projectname;
+    _thumbImageView.image = [UIImage imageWithData:entity.picture1];
+}
+
 @end

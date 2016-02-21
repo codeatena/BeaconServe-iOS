@@ -44,6 +44,8 @@
 		04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F51C7A240A00677793 /* BeaconServe.xcdatamodeld */; };
 		04F2E7FC1C7A246600677793 /* ProjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F91C7A246600677793 /* ProjectEntity+CoreDataProperties.m */; };
 		04F2E7FD1C7A246600677793 /* ProjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7FB1C7A246600677793 /* ProjectEntity.m */; };
+		04F2E7FF1C7A280100677793 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F2E7FE1C7A280100677793 /* camera.png */; };
+		04F2E8031C7A370900677793 /* CoredataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E8021C7A370900677793 /* CoredataManager.m */; };
 		8ADB5145C6208685FBCD4B1F /* Pods_BeaconServe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287239413C14D3220CD324BB /* Pods_BeaconServe.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,9 @@
 		04F2E7F91C7A246600677793 /* ProjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProjectEntity+CoreDataProperties.m"; path = "model/ProjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		04F2E7FA1C7A246600677793 /* ProjectEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectEntity.h; path = model/ProjectEntity.h; sourceTree = "<group>"; };
 		04F2E7FB1C7A246600677793 /* ProjectEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectEntity.m; path = model/ProjectEntity.m; sourceTree = "<group>"; };
+		04F2E7FE1C7A280100677793 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = resource/images/camera.png; sourceTree = "<group>"; };
+		04F2E8011C7A370900677793 /* CoredataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoredataManager.h; path = control/CoredataManager.h; sourceTree = "<group>"; };
+		04F2E8021C7A370900677793 /* CoredataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoredataManager.m; path = control/CoredataManager.m; sourceTree = "<group>"; };
 		287239413C14D3220CD324BB /* Pods_BeaconServe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconServe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F637F5A460DDEB96ED7F8 /* Pods-BeaconServe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.release.xcconfig"; sourceTree = "<group>"; };
 		614F2A3744991BE36FB00549 /* Pods-BeaconServe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconServe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconServe/Pods-BeaconServe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +137,8 @@
 			children = (
 				0457C5871C7912C900BF34AF /* BeaconManager.h */,
 				0457C5881C7912C900BF34AF /* BeaconManager.m */,
+				04F2E8011C7A370900677793 /* CoredataManager.h */,
+				04F2E8021C7A370900677793 /* CoredataManager.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 		0497F2771C728563009690DE /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04F2E7FE1C7A280100677793 /* camera.png */,
 				049D1E3F1C74FB60002B1432 /* camera_back.png */,
 				049D1E1B1C7403D4002B1432 /* placeholder.png */,
 				0497F2891C728F7F009690DE /* border.png */,
@@ -384,6 +392,7 @@
 				0497F27F1C72856F009690DE /* camera_button.png in Resources */,
 				0497F2811C72856F009690DE /* logo.png in Resources */,
 				049D1E401C74FB60002B1432 /* camera_back.png in Resources */,
+				04F2E7FF1C7A280100677793 /* camera.png in Resources */,
 				0497F26B1C726B9D009690DE /* LaunchScreen.storyboard in Resources */,
 				0497F2841C72856F009690DE /* map_icon3.png in Resources */,
 				0497F2821C72856F009690DE /* map_icon1.png in Resources */,
@@ -465,6 +474,7 @@
 				049D1E2F1C749735002B1432 /* StartProjectViewController.m in Sources */,
 				0497F25D1C726B9D009690DE /* AppDelegate.m in Sources */,
 				049D1E3B1C74BC29002B1432 /* QuestionTableViewCell.m in Sources */,
+				04F2E8031C7A370900677793 /* CoredataManager.m in Sources */,
 				0457C5891C7912C900BF34AF /* BeaconManager.m in Sources */,
 				0497F25A1C726B9D009690DE /* main.m in Sources */,
 				049D1E351C74BB56002B1432 /* QuestionType2ViewController.m in Sources */,

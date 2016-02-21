@@ -17,12 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.title = [[CoredataManager sharedManager] currentProject].projectname;
+    _projectImageView.layer.masksToBounds = YES;
     
     CALayer *btnLayer = [self.startBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];
     btnLayer.borderWidth = 1.0;
     btnLayer.borderColor = [UIColor clearColor].CGColor;
+
 }
 
 - (void)didReceiveMemoryWarning {

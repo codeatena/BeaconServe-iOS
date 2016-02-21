@@ -10,5 +10,6 @@ pod 'IQKeyboardManager'
 pod 'RSTCoreDataKit'
 pod 'PureLayout'
 pod 'M13Checkbox'
+pod 'RSTCoreDataKit'
 
 end

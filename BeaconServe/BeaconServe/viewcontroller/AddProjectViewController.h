@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddProjectViewController : UIViewController
+@interface AddProjectViewController : UIViewController <UIImagePickerControllerDelegate ,UINavigationControllerDelegate>
+
+- (IBAction)onCamera:(id)sender;
+- (IBAction)onDone:(id)sender;
 
 @end

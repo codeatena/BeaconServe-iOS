@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = [[CoredataManager sharedManager] currentProject].projectname;
+
 }
 
 - (void)didReceiveMemoryWarning {

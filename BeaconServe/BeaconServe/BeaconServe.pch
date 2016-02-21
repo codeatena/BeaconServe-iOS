@@ -12,7 +12,13 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import <RSTCoreDataKit/RSTCoreDataKit.h>
 #import "UIColor+HexString.h"
 #import <CoreLocation/CoreLocation.h>
+
+#import "BeaconManager.h"
+#import "CoredataManager.h"
+#import "ProjectEntity.h"
+#import "ProjectEntity+CoreDataProperties.h"
 
 #endif /* BeaconServe_pch */

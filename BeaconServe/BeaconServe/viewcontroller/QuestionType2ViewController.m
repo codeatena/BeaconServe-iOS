@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = [[CoredataManager sharedManager] currentProject].projectname;
+
     CALayer *btnLayer = [self.backBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];

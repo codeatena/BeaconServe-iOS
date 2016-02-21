@@ -11,6 +11,8 @@
 
 @interface ProjectsViewController () <ProjectCollectionViewCellDelegate>
 
+@property (nonatomic ,strong) NSMutableArray *projectArr;
+
 @end
 
 @implementation ProjectsViewController
@@ -25,12 +27,20 @@
     spacer.width = 10; // for example shift right bar button to the right
 //    self.navigationItem.leftBarButtonItems = @[spacer , _avatarItem];
     self.navigationItem.leftBarButtonItems = @[_avatarItem];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    _projectArr = [[NSMutableArray alloc] initWithArray:[[CoredataManager sharedManager] getArrayProjects]];
+    [_collectionView reloadData];
 }
 
 /*
@@ -45,13 +55,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return _projectArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ProjectCollectionViewCell *cell = (ProjectCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"projectCell" forIndexPath:indexPath];
     cell.cellDelegate = self;
+    
+    ProjectEntity *entity = [_projectArr objectAtIndex:indexPath.row];
+    [cell setEntity:entity];
+    
     return cell;
 }
 
@@ -76,6 +90,9 @@
 #pragma mark - ProjectCollectionViewCellDelegate
 - (void)doSelect:(ProjectCollectionViewCell *)cell
 {
+    NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
+    ProjectEntity *entity = [_projectArr objectAtIndex:indexPath.row];
+    [[CoredataManager sharedManager] setCurrentProject:entity];
     [self performSegueWithIdentifier:@"directionSegue" sender:nil];
 }
 

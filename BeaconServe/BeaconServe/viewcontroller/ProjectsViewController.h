@@ -11,5 +11,6 @@
 @interface ProjectsViewController : UIViewController <UICollectionViewDataSource , UICollectionViewDelegate>
 
 @property (nonatomic ,assign) IBOutlet UIBarButtonItem *avatarItem;
+@property (nonatomic ,assign) IBOutlet UICollectionView *collectionView;
 
 @end

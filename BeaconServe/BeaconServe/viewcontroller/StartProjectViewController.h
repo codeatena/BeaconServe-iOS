@@ -11,5 +11,6 @@
 @interface StartProjectViewController : UIViewController
 
 @property (nonatomic ,assign) IBOutlet UIButton *startBtn;
+@property (nonatomic ,assign) IBOutlet UIImageView *projectImageView;
 
 @end

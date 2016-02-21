@@ -23,6 +23,7 @@
                                                [UIFont systemFontOfSize:16.0f] ,NSFontAttributeName,
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"#27B9DE"]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     return YES;

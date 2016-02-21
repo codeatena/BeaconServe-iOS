@@ -23,6 +23,7 @@
 @property (nonatomic ,assign) IBOutlet UIImageView *thumbImageView;
 
 - (IBAction)onSelect:(id)sender;
+- (void)setEntity:(ProjectEntity *)entity;
 
 @property (nonatomic ,weak) id <ProjectCollectionViewCellDelegate> cellDelegate;
 
