@@ -476,7 +476,7 @@
             </objects>
             <point key="canvasLocation" x="607" y="276"/>
         </scene>
-        <!--CREATE NEW PROJECR-->
+        <!--CREATE NEW PROJECT-->
         <scene sceneID="Hft-9b-aSV">
             <objects>
                 <viewController id="7rU-CL-dSl" customClass="AddProjectViewController" sceneMemberID="viewController">
@@ -595,7 +595,7 @@
                             <constraint firstItem="W4f-IO-TbF" firstAttribute="top" secondItem="Oxn-0p-1T0" secondAttribute="bottom" constant="26" id="yof-54-0jk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CREATE NEW PROJECR" id="F0z-vK-PC6">
+                    <navigationItem key="navigationItem" title="CREATE NEW PROJECT" id="F0z-vK-PC6">
                         <barButtonItem key="leftBarButtonItem" id="lys-vH-7oj">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OPs-pj-pbU">
                                 <rect key="frame" x="16" y="7" width="22" height="30"/>
@@ -1224,6 +1224,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLbl" destination="LxC-JJ-ccL" id="fGp-qE-gWe"/>
+                        <outlet property="projectImageView" destination="lrs-ig-r31" id="L4B-KS-vE1"/>
                         <outlet property="titltLbl" destination="khM-j6-0BG" id="WKY-KS-lrO"/>
                     </connections>
                 </viewController>

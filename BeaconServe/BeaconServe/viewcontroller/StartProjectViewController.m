@@ -20,6 +20,7 @@
 
     self.title = [[CoredataManager sharedManager] currentProject].projectname;
     _projectImageView.layer.masksToBounds = YES;
+    _projectImageView.image =  [UIImage imageWithData:[[CoredataManager sharedManager] currentProject].picture1];
     
     CALayer *btnLayer = [self.startBtn layer];
     [btnLayer setMasksToBounds:YES];

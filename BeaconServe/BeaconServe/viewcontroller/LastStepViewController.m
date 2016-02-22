@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view.
     
     self.title = [[CoredataManager sharedManager] currentProject].projectname;
+    _projectImageView.image =  [UIImage imageWithData:[[CoredataManager sharedManager] currentProject].picture1];
+
     [self setFont];
 }
 

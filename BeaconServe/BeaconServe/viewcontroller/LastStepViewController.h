@@ -12,4 +12,5 @@
 
 @property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
 @property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
+@property (nonatomic ,assign) IBOutlet UIImageView *projectImageView;
 @end
