@@ -15,6 +15,8 @@
 @property (nonatomic ,assign) IBOutlet UITextField *passwordTxtField;
 @property (nonatomic ,assign) IBOutlet M13Checkbox *acceptCheckbox;
 @property (nonatomic ,assign) IBOutlet UIButton *loginBtn;
+
 @property (nonatomic ,assign) IBOutlet UILabel *underlineLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *acceptLbl;
 
 @end

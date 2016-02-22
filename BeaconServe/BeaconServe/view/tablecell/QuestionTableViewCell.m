@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    [self.titleLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

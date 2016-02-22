@@ -13,4 +13,7 @@
 @property (nonatomic ,assign) IBOutlet UIButton *startBtn;
 @property (nonatomic ,assign) IBOutlet UIImageView *projectImageView;
 
+@property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
+
 @end

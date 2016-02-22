@@ -39,6 +39,10 @@
 		049D1E3B1C74BC29002B1432 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3A1C74BC29002B1432 /* QuestionTableViewCell.m */; };
 		049D1E3E1C74F9B0002B1432 /* LastStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */; };
 		049D1E401C74FB60002B1432 /* camera_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 049D1E3F1C74FB60002B1432 /* camera_back.png */; };
+		04D836171C7B6F9B00773EA1 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D836141C7B6F9B00773EA1 /* RobotoCondensed-Bold.ttf */; };
+		04D836181C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D836151C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf */; };
+		04D836191C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D836161C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf */; };
+		04D8361D1C7B755B00773EA1 /* TopAlignedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */; };
 		04F0E60F1C78DD9A00A3D29B /* ProjectAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */; };
 		04F2E7F31C7A22E600677793 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F21C7A22E600677793 /* AddProjectViewController.m */; };
 		04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F51C7A240A00677793 /* BeaconServe.xcdatamodeld */; };
@@ -100,6 +104,11 @@
 		049D1E3C1C74F9B0002B1432 /* LastStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastStepViewController.h; path = viewcontroller/LastStepViewController.h; sourceTree = "<group>"; };
 		049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LastStepViewController.m; path = viewcontroller/LastStepViewController.m; sourceTree = "<group>"; };
 		049D1E3F1C74FB60002B1432 /* camera_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_back.png; path = resource/images/camera_back.png; sourceTree = "<group>"; };
+		04D836141C7B6F9B00773EA1 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "resource/font/RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		04D836151C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "resource/font/RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		04D836161C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Regular.ttf"; path = "resource/font/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		04D8361B1C7B755B00773EA1 /* TopAlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAlignedLabel.h; sourceTree = "<group>"; };
+		04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAlignedLabel.m; sourceTree = "<group>"; };
 		04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectAnnotation.h; path = model/ProjectAnnotation.h; sourceTree = "<group>"; };
 		04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectAnnotation.m; path = model/ProjectAnnotation.m; sourceTree = "<group>"; };
 		04F2E7F11C7A22E600677793 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProjectViewController.h; path = viewcontroller/AddProjectViewController.h; sourceTree = "<group>"; };
@@ -240,6 +249,7 @@
 		0497F2751C728552009690DE /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				04D8361A1C7B755B00773EA1 /* TopAlignedLabel */,
 				049D1E161C74026D002B1432 /* HexColor */,
 			);
 			name = utility;
@@ -248,6 +258,7 @@
 		0497F2761C72855A009690DE /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				04D836131C7B6F8F00773EA1 /* font */,
 				0497F2771C728563009690DE /* images */,
 			);
 			name = resource;
@@ -290,6 +301,26 @@
 				049D1E3A1C74BC29002B1432 /* QuestionTableViewCell.m */,
 			);
 			name = tablecell;
+			sourceTree = "<group>";
+		};
+		04D836131C7B6F8F00773EA1 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				04D836141C7B6F9B00773EA1 /* RobotoCondensed-Bold.ttf */,
+				04D836151C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf */,
+				04D836161C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
+		04D8361A1C7B755B00773EA1 /* TopAlignedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				04D8361B1C7B755B00773EA1 /* TopAlignedLabel.h */,
+				04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */,
+			);
+			name = TopAlignedLabel;
+			path = unitity/TopAlignedLabel;
 			sourceTree = "<group>";
 		};
 		04F2E7F41C7A23F100677793 /* coredata */ = {
@@ -386,10 +417,12 @@
 			files = (
 				0497F28A1C728F7F009690DE /* border.png in Resources */,
 				049D1E1C1C7403D4002B1432 /* placeholder.png in Resources */,
+				04D836181C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf in Resources */,
 				0497F2831C72856F009690DE /* map_icon2.png in Resources */,
 				0497F2801C72856F009690DE /* login_background.png in Resources */,
 				0497F2851C72856F009690DE /* menu_button.png in Resources */,
 				0497F27F1C72856F009690DE /* camera_button.png in Resources */,
+				04D836171C7B6F9B00773EA1 /* RobotoCondensed-Bold.ttf in Resources */,
 				0497F2811C72856F009690DE /* logo.png in Resources */,
 				049D1E401C74FB60002B1432 /* camera_back.png in Resources */,
 				04F2E7FF1C7A280100677793 /* camera.png in Resources */,
@@ -397,6 +430,7 @@
 				0497F2841C72856F009690DE /* map_icon3.png in Resources */,
 				0497F2821C72856F009690DE /* map_icon1.png in Resources */,
 				0497F2681C726B9D009690DE /* Assets.xcassets in Resources */,
+				04D836191C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf in Resources */,
 				0497F2631C726B9D009690DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +505,7 @@
 				049D1E231C741EA7002B1432 /* DirectionViewController.m in Sources */,
 				049D1E201C740DE1002B1432 /* ProjectCollectionViewCell.m in Sources */,
 				04F2E7F31C7A22E600677793 /* AddProjectViewController.m in Sources */,
+				04D8361D1C7B755B00773EA1 /* TopAlignedLabel.m in Sources */,
 				049D1E2F1C749735002B1432 /* StartProjectViewController.m in Sources */,
 				0497F25D1C726B9D009690DE /* AppDelegate.m in Sources */,
 				049D1E3B1C74BC29002B1432 /* QuestionTableViewCell.m in Sources */,

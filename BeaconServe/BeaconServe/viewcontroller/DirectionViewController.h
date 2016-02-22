@@ -12,6 +12,7 @@
 @interface DirectionViewController : UIViewController
 
 @property (nonatomic ,assign) IBOutlet UIButton *showBtn;
+@property (nonatomic ,assign) IBOutlet UILabel *addressLbl;
 
 @property (nonatomic ,strong) CLLocationManager *locationManager;
 @property (nonatomic ,strong) NSMutableArray *locations;

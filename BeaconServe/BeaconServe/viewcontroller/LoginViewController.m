@@ -42,6 +42,8 @@
                             range:(NSRange){0,[attributeString length]}];
     
     _underlineLbl.attributedText = attributeString;
+    
+    [self setFont];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +78,18 @@
 - (IBAction)onLogin:(id)sender
 {
     [self performSegueWithIdentifier:@"mainSegue" sender:nil];
+}
+
+- (void)setFont
+{
+    [self.usernameTxtField setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:16]];
+    [self.passwordTxtField setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:16]];
+
+    [_loginBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    
+    [self.acceptLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+    [self.underlineLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+
 }
 
 @end

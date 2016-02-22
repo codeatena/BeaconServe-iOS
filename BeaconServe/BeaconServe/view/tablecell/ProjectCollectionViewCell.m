@@ -19,6 +19,10 @@
     [btnLayer setCornerRadius:2.0f];
     btnLayer.borderWidth = 1.0;
     btnLayer.borderColor = [UIColor clearColor].CGColor;
+    
+    [_nameLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:16]];
+    [_selectBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:16]];
+
 }
 
 - (IBAction)onSelect:(id)sender

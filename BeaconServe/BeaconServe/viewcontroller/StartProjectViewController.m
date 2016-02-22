@@ -27,6 +27,7 @@
     btnLayer.borderWidth = 1.0;
     btnLayer.borderColor = [UIColor clearColor].CGColor;
 
+    [self setFont];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +49,14 @@
 {
     UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
     [self.navigationController popToViewController:vc animated:YES];
+}
+
+- (void)setFont
+{
+    [_startBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    [_titltLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    
+    [self.descriptionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
 }
 
 @end

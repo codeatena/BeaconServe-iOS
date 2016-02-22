@@ -10,4 +10,6 @@
 
 @interface LastStepViewController : UIViewController
 
+@property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
 @end

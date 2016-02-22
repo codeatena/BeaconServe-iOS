@@ -12,4 +12,7 @@
 
 @property (nonatomic ,assign) IBOutlet UIButton *continueBtn;
 
+@property (nonatomic ,assign) IBOutlet UILabel *titleLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *instructionLbl;
+
 @end

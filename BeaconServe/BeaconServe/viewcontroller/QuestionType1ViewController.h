@@ -16,4 +16,7 @@
 @property (nonatomic) NSInteger newIndex;
 @property (nonatomic) NSInteger oldIndex;
 
+@property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
+
 @end

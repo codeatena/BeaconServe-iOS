@@ -24,6 +24,8 @@
     
     self.navigationItem.hidesBackButton = YES;
 
+    [self setFont];
+    
     CALayer *btnLayer = [self.showBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];
@@ -55,6 +57,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)setFont
+{
+    [_showBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    [self.addressLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+}
 
 - (IBAction)onMenu:(id)sender
 {

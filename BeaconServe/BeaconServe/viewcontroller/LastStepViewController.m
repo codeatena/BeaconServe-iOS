@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.title = [[CoredataManager sharedManager] currentProject].projectname;
-
+    [self setFont];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +41,14 @@
 {
     UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
     [self.navigationController popToViewController:vc animated:YES];
+}
+
+- (void)setFont
+{
+    [_titltLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    
+    [self.descriptionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+    
 }
 
 @end

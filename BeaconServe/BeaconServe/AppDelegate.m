@@ -20,7 +20,7 @@
     
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor whiteColor],NSForegroundColorAttributeName,
-                                               [UIFont systemFontOfSize:16.0f] ,NSFontAttributeName,
+                                               [UIFont fontWithName:@"Roboto-Bold" size:18.0f] ,NSFontAttributeName,
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"#27B9DE"]];

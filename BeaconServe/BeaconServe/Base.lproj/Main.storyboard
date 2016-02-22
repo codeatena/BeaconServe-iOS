@@ -97,17 +97,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMp-kQ-afX">
-                                <rect key="frame" x="56" y="428" width="83" height="21"/>
+                                <rect key="frame" x="56" y="428" width="77" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9tB-1m-JAa"/>
-                                    <constraint firstAttribute="width" constant="83" id="j6P-EL-QTT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-G6-JH9">
-                                <rect key="frame" x="141" y="428" width="141" height="21"/>
+                                <rect key="frame" x="135" y="428" width="141" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="UW0-yI-fut"/>
                                     <constraint firstAttribute="width" constant="141" id="Vfo-uB-wac"/>
@@ -152,6 +151,7 @@
                     <navigationItem key="navigationItem" id="zGw-z3-qsU"/>
                     <connections>
                         <outlet property="acceptCheckbox" destination="PQ8-rI-8ab" id="fFQ-F9-jFp"/>
+                        <outlet property="acceptLbl" destination="WMp-kQ-afX" id="dBT-aS-XWm"/>
                         <outlet property="loginBtn" destination="jf8-uu-ZWz" id="EHy-Uw-bPB"/>
                         <outlet property="passwordTxtField" destination="81g-Bq-04e" id="irH-Qc-rZP"/>
                         <outlet property="underlineLbl" destination="1p9-G6-JH9" id="gvt-d7-UC2"/>
@@ -245,6 +245,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addressLbl" destination="Ogm-ia-ehG" id="VV9-DQ-RHv"/>
                         <outlet property="mapView" destination="GtX-Y6-bDN" id="amp-KD-BoN"/>
                         <outlet property="showBtn" destination="orR-zV-C16" id="opm-i0-YcJ"/>
                     </connections>
@@ -291,7 +292,7 @@
                                         <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-4H-MSO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-4H-MSO" customClass="TopAlignedLabel">
                                         <rect key="frame" x="20" y="57" width="240" height="133"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="133" id="pyk-0N-XFp"/>
@@ -338,6 +339,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueBtn" destination="hLa-Md-WsY" id="Jhn-hO-TYM"/>
+                        <outlet property="instructionLbl" destination="2Vg-4H-MSO" id="UNC-9n-RJk"/>
+                        <outlet property="titleLbl" destination="F99-IF-6xJ" id="VNz-RI-jpZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N8-uY-avX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -496,7 +499,7 @@
                                     <constraint firstAttribute="height" constant="29" id="0Z5-uH-xd0"/>
                                     <constraint firstAttribute="width" constant="235" id="aUh-jt-LxU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -757,8 +760,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="xRH-Cd-8LK" id="czG-l7-YV6"/>
+                        <outlet property="descriptionLbl" destination="JDq-g8-fks" id="Y4m-hl-bf2"/>
                         <outlet property="nextBtn" destination="72w-ln-iCk" id="kFq-cz-wIe"/>
                         <outlet property="tableView" destination="IAB-Xb-cfD" id="ovg-ey-g2d"/>
+                        <outlet property="titltLbl" destination="mtj-B4-MVZ" id="mjG-kX-xM0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DY-NI-c5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -990,7 +995,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="pdm-lk-AIq" id="THQ-M4-GcC"/>
+                        <outlet property="descriptionLbl" destination="rhS-j9-Vdm" id="YBc-AI-mZW"/>
                         <outlet property="nextBtn" destination="Ybq-F2-xpz" id="RLL-fa-oI0"/>
+                        <outlet property="titltLbl" destination="fsb-Iv-cv4" id="Rlu-3R-bjL"/>
+                        <outlet property="topLbl" destination="kYL-L9-x3o" id="0OP-BL-EdU"/>
                         <outletCollection property="buttons" destination="aaJ-Mx-Xfp" id="fiB-pR-dad"/>
                         <outletCollection property="buttons" destination="O85-oF-vF1" id="RUs-tO-t2U"/>
                         <outletCollection property="buttons" destination="VpC-5H-0mb" id="9I4-MZ-x3c"/>
@@ -1133,7 +1141,10 @@
                     <connections>
                         <outlet property="answerTextView" destination="LvN-cB-TMh" id="kzv-Gm-95r"/>
                         <outlet property="backBtn" destination="5Qt-DL-T5r" id="Rmn-iI-fOw"/>
+                        <outlet property="descriptionLbl" destination="3Nk-wh-fJx" id="DrC-LX-ki0"/>
                         <outlet property="nextBtn" destination="Zjl-mm-DBc" id="XVX-IW-1Fo"/>
+                        <outlet property="titltLbl" destination="Uqd-pq-3z6" id="bW3-0d-Iv8"/>
+                        <outlet property="topLbl" destination="b6i-6F-LGr" id="aJd-ct-LFZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLi-jc-Iva" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1211,6 +1222,10 @@
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionLbl" destination="LxC-JJ-ccL" id="fGp-qE-gWe"/>
+                        <outlet property="titltLbl" destination="khM-j6-0BG" id="WKY-KS-lrO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tS-gZ-u6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1305,8 +1320,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionLbl" destination="gYc-uv-EvA" id="cik-jq-wMa"/>
                         <outlet property="projectImageView" destination="Fdg-tT-IbP" id="lsw-ya-d4g"/>
                         <outlet property="startBtn" destination="mvi-q7-jjG" id="kgX-Lw-aP7"/>
+                        <outlet property="titltLbl" destination="9nG-fe-5tE" id="qMA-i7-kcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIw-sj-PeS" userLabel="First Responder" sceneMemberID="firstResponder"/>

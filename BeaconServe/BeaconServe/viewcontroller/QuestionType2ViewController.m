@@ -34,6 +34,7 @@
     
     _newIndex = _oldIndex = -1;
 
+    [self setFont];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +88,17 @@
     
     _oldIndex = _newIndex;
 
+}
+
+- (void)setFont
+{
+    [_backBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    [_nextBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    
+    [_titltLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    
+    [self.descriptionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+    [self.topLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
 }
 
 @end

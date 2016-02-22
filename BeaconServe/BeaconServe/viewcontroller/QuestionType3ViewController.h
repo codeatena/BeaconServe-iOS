@@ -15,4 +15,8 @@
 
 @property (nonatomic ,assign) IBOutlet UITextView *answerTextView;
 
+@property (nonatomic ,assign) IBOutlet UILabel *topLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
+@property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
+
 @end

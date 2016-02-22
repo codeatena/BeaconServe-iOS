@@ -25,6 +25,8 @@
     [btnLayer setCornerRadius:3.0f];
     btnLayer.borderWidth = 1.0;
     btnLayer.borderColor = [UIColor clearColor].CGColor;
+    
+    [self setFont];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,5 +44,12 @@
 }
 */
 
+- (void)setFont
+{
+    [_continueBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+    [_titleLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
+
+    [self.instructionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
+}
 
 @end
