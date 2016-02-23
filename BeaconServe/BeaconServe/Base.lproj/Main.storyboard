@@ -279,7 +279,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lkD-mU-a6n" kind="push" id="toJ-Sq-8CS"/>
+                                            <action selector="onContinue:" destination="I3M-Sg-G8k" eventType="touchUpInside" id="Vef-98-9bY"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F99-IF-6xJ">
@@ -341,6 +341,7 @@
                         <outlet property="continueBtn" destination="hLa-Md-WsY" id="Jhn-hO-TYM"/>
                         <outlet property="instructionLbl" destination="2Vg-4H-MSO" id="UNC-9n-RJk"/>
                         <outlet property="titleLbl" destination="F99-IF-6xJ" id="VNz-RI-jpZ"/>
+                        <segue destination="lkD-mU-a6n" kind="push" identifier="startSegue" id="DzS-cO-OL7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N8-uY-avX" userLabel="First Responder" sceneMemberID="firstResponder"/>

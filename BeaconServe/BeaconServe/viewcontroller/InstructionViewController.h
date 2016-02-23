@@ -15,4 +15,6 @@
 @property (nonatomic ,assign) IBOutlet UILabel *titleLbl;
 @property (nonatomic ,assign) IBOutlet UILabel *instructionLbl;
 
+- (IBAction)onContinue:(id)sender;
+
 @end

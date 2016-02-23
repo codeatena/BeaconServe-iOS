@@ -14,4 +14,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic ,strong) NSMutableArray *storedItems;
 
++ (id)sharedManager;
+
+- (void)loadItems;
+- (void)stopItems;
+
 @end

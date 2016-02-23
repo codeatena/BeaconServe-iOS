@@ -109,6 +109,7 @@
 		04D836161C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Regular.ttf"; path = "resource/font/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		04D8361B1C7B755B00773EA1 /* TopAlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAlignedLabel.h; sourceTree = "<group>"; };
 		04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAlignedLabel.m; sourceTree = "<group>"; };
+		04D8361F1C7BB9FD00773EA1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = model/Constants.h; sourceTree = "<group>"; };
 		04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectAnnotation.h; path = model/ProjectAnnotation.h; sourceTree = "<group>"; };
 		04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectAnnotation.m; path = model/ProjectAnnotation.m; sourceTree = "<group>"; };
 		04F2E7F11C7A22E600677793 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProjectViewController.h; path = viewcontroller/AddProjectViewController.h; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		0497F2731C728547009690DE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04D8361F1C7BB9FD00773EA1 /* Constants.h */,
 				04F2E7F41C7A23F100677793 /* coredata */,
 				04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */,
 				04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */,
@@ -623,11 +625,12 @@
 			baseConfigurationReference = 614F2A3744991BE36FB00549 /* Pods-BeaconServe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = BeaconServe/BeaconServe.pch;
 				INFOPLIST_FILE = BeaconServe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VirtusVentures.BeaconServe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VirtusVentures.BeaconServe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -637,11 +640,12 @@
 			baseConfigurationReference = 539F637F5A460DDEB96ED7F8 /* Pods-BeaconServe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = BeaconServe/BeaconServe.pch;
 				INFOPLIST_FILE = BeaconServe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = VirtusVentures.BeaconServe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VirtusVentures.BeaconServe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

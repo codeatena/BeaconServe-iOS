@@ -37,6 +37,16 @@
             NSLog(@"Monitoring not available");
             
         }
+        else
+        {
+            NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:BEACON1_UUID];
+            NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:BEACON2_UUID];
+            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_PROXIMITY uuid:uuid1 major:1 minor:1];
+            BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_PROXIMITY uuid:uuid2 major:1 minor:1];
+            [_storedItems addObject:item1];
+            [_storedItems addObject:item2];
+
+        }
     }
     return self;
 }
@@ -46,6 +56,14 @@
     for (BeaconItem *itemData in _storedItems) {
         
         [self startMonitoringItem:itemData];
+    }
+}
+
+- (void)stopItems
+{
+    for (BeaconItem *itemData in _storedItems) {
+        
+        [self stopMonitoringItem:itemData];
     }
 }
 
@@ -88,10 +106,23 @@
 {
     // Beacon found!
     
-    //CLBeacon *foundBeacon = [beacons firstObject];
+    CLBeacon *foundBeacon = [beacons firstObject];
     
     // You can retrieve the beacon data from its properties
-    //NSString *uuid = foundBeacon.proximityUUID.UUIDString;
+    NSString *uuid = foundBeacon.proximityUUID.UUIDString;
+    
+    NSLog(@"UUID is %@" ,uuid);
+    
+    if (uuid != nil && [uuid isEqualToString:BEACON1_UUID])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon1found" object:self];
+    }
+    else if (uuid != nil && [uuid isEqualToString:BEACON2_UUID])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self];
+
+    }
+    
     //NSString *major = [NSString stringWithFormat:@"%@", foundBeacon.major];
     //NSString *minor = [NSString stringWithFormat:@"%@", foundBeacon.minor];
 }
