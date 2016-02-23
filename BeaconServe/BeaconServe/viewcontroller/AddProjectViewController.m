@@ -114,6 +114,24 @@
 
 - (IBAction)onDone:(id)sender
 {
+    if (_nameTextField.text.length == 0)
+    {
+        [self showAlert:@"Please type project name"];
+        return;
+    }
+    
+    if (_imageView1.image == nil)
+    {
+        [self showAlert:@"Please select picture1"];
+        return;
+    }
+    
+    if (_imageView2.image == nil)
+    {
+        [self showAlert:@"Please select picture2"];
+        return;
+    }
+    
     [[CoredataManager sharedManager] createProjet:_nameTextField.text image1:_imageView1.image image2:_imageView2.image];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -139,4 +157,20 @@
 
 }
 
+- (void)showAlert:(NSString *)alertMessage
+{
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:nil
+                                          message:alertMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSLog(@"OK action");
+                               }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 @end
