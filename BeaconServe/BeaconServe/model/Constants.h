@@ -10,9 +10,9 @@
 #define Constants_h
 
 #define BEACON1_UUID        @"E2C56DB5-DFFB-48D2-B060-D0F5A710AF23"
-#define BEACON2_UUID        @"E2C56DB5-DFFB-48D2-B060-D0F5A710AF20"
+#define BEACON2_UUID        @"E2C56DB5-DFFB-48D2-B060-D0F5A710AF22"
 
-#define BEACON1_PROXIMITY   @"9C:20:7B:de:DF:D9"
-#define BEACON2_PROXIMITY   @"FD:40:58:7A:34:69"
+#define BEACON1_NAME        @"DARKO StoreAxis"
+#define BEACON2_NAME        @"DARKO StoreAxis"
 
 #endif /* Constants_h */

@@ -1,17 +1,20 @@
 PODS:
   - IQKeyboardManager (4.0.0)
+  - KCSIBeacon (1.2.0)
   - M13Checkbox (1.2.0)
   - PureLayout (3.0.1)
   - RSTCoreDataKit (0.1.2)
 
 DEPENDENCIES:
   - IQKeyboardManager
+  - KCSIBeacon
   - M13Checkbox
   - PureLayout
   - RSTCoreDataKit
 
 SPEC CHECKSUMS:
   IQKeyboardManager: b91928f7927ba55a5829b4dcf4b7a6736ac9fc22
+  KCSIBeacon: e3936e8fea8531579ba884d84e72ac2668fb050a
   M13Checkbox: 741b406a1d72415e3e3af9b9b6347ff345ed2f97
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   RSTCoreDataKit: 9a48c002c36fca23ee9183b5c330f98ad44a5b4c

@@ -39,10 +39,13 @@
         }
         else
         {
+            self.beaconManager = [[KCSBeaconManager alloc] init];
+            self.beaconManager.delegate = self;
+            
             NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:BEACON1_UUID];
             NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:BEACON2_UUID];
-            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_PROXIMITY uuid:uuid1 major:1 minor:1];
-            BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_PROXIMITY uuid:uuid2 major:1 minor:1];
+            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:uuid1 major:4660 minor:22136];
+            BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:uuid2 major:4660 minor:22136];
             [_storedItems addObject:item1];
             [_storedItems addObject:item2];
 
@@ -55,7 +58,9 @@
 {
     for (BeaconItem *itemData in _storedItems) {
         
-        [self startMonitoringItem:itemData];
+        //[self startMonitoringItem:itemData];
+        [self.beaconManager startMonitoringForRegion:itemData.uuid.UUIDString identifier:itemData.name error:nil];
+
     }
 }
 
@@ -133,6 +138,14 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"Location manager failed: %@", error);
+}
+
+- (void) newNearestBeacon:(CLBeacon*)beacon
+{
+    NSString *uuid = beacon.proximityUUID.UUIDString;
+    
+    if (uuid != nil) NSLog(@"UUID is %@" ,uuid);
+    
 }
 
 @end
