@@ -35,9 +35,6 @@
         }
         else
         {
-            self.beaconManager = [[KCSBeaconManager alloc] init];
-            self.beaconManager.delegate = self;
-            self.beaconManager.postsLocalNotification = YES;
             
             NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:BEACON1_UUID];
             NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:BEACON2_UUID];
@@ -45,7 +42,6 @@
             BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:uuid2 major:4660 minor:22136];
             [_storedItems addObject:item1];
             [_storedItems addObject:item2];
-
         }
     }
     return self;
@@ -53,9 +49,14 @@
 
 - (void)startItems
 {
+    [self stopItems];
+
+    self.beaconManager = [[KCSBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
+    self.beaconManager.postsLocalNotification = YES;
+    
     for (BeaconItem *itemData in _storedItems) {
         
-        //[self startMonitoringItem:itemData];
         [self.beaconManager startMonitoringForRegion:itemData.uuid.UUIDString identifier:itemData.name error:nil];
 
     }
@@ -65,17 +66,8 @@
 {
     for (BeaconItem *itemData in _storedItems) {
         
-        //[self stopMonitoringItem:itemData];
         [self.beaconManager stopMonitoringForRegion:itemData.name];
     }
-}
-
-- (CLBeaconRegion *)beaconRegionWithItem:(BeaconItem *)item {
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:item.uuid
-                                                                           major:item.majorValue
-                                                                           minor:item.minorValue
-                                                                      identifier:item.name];
-    return beaconRegion;
 }
 
 #pragma mark - KCSBeaconManagerDelegate
@@ -83,11 +75,15 @@
 {
 
     // Beacon found!
-    
+
+    [self stopItems];
+
     // You can retrieve the beacon data from its properties
     NSString *uuid = beacon.proximityUUID.UUIDString;
     
     NSLog(@"UUID is %@" ,uuid);
+    
+    NSLog(@"Accuracy is %f" ,beacon.accuracy);
     
     if (uuid != nil && [uuid isEqualToString:BEACON1_UUID])
     {
@@ -105,6 +101,16 @@
 {
     // return message for local notification
     return nil;
+}
+
+- (void) enteredRegion:(CLBeaconRegion*)region
+{
+    
+}
+
+- (void) exitedRegion:(CLBeaconRegion*)region
+{
+    
 }
 
 @end

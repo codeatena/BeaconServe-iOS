@@ -37,8 +37,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 
+}
+
+- (void)dealloc{
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"beacon1found"
                                                   object:nil];
@@ -77,7 +83,6 @@
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {
-    [[BeaconManager sharedManager] stopItems];
     
     if ([notification.name isEqualToString:@"beacon1found"])
     {
