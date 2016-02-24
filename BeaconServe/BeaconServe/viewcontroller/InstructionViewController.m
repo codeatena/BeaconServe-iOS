@@ -28,8 +28,6 @@
     
     [self setFont];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"beacon1found" object:[BeaconManager sharedManager]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"beacon2found" object:[BeaconManager sharedManager]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,17 +41,6 @@
 
 }
 
-- (void)dealloc{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"beacon1found"
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"beacon2found"
-                                                  object:nil];
-    
-}
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -61,10 +48,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if ([segue.identifier isEqualToString:@"beacon1found"])
-    {
-        
-    }
 }
 
 - (void)setFont
@@ -77,28 +60,7 @@
 
 - (IBAction)onContinue:(id)sender
 {
-    
-    [[BeaconManager sharedManager] startItems];
-}
-
-- (void) receiveTestNotification:(NSNotification *) notification
-{
-    
-    if ([notification.name isEqualToString:@"beacon1found"])
-    {
-        NSLog(@"Beacon 1 Found");
-        [[NSUserDefaults standardUserDefaults] setValue:@"beacon1" forKey:@"beacon"];
-        
-        [self performSegueWithIdentifier:@"startSegue" sender:nil];
-    }
-    else if ([notification.name isEqualToString:@"beacon2found"])
-    {
-        NSLog(@"Beacon 2 Found");
-        [[NSUserDefaults standardUserDefaults] setValue:@"beacon2" forKey:@"beacon"];
-
-        [self performSegueWithIdentifier:@"startSegue" sender:nil];
-
-    }
+    [self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
 }
 
 @end

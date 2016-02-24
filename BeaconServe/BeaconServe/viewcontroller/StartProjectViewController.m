@@ -58,8 +58,10 @@
 
 - (IBAction)onMenu:(id)sender
 {
-    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
-    [self.navigationController popToViewController:vc animated:YES];
+//    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
+//    [self.navigationController popToViewController:vc animated:YES];
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setFont

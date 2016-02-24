@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043E09A11C7E4D0600443102 /* BeaconListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E09A01C7E4D0600443102 /* BeaconListTableViewController.m */; };
 		0457C5891C7912C900BF34AF /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457C5881C7912C900BF34AF /* BeaconManager.m */; };
 		0457C58C1C79195400BF34AF /* BeaconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457C58B1C79195400BF34AF /* BeaconItem.m */; };
 		0497F25A1C726B9D009690DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497F2591C726B9D009690DE /* main.m */; };
@@ -54,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043E099F1C7E4D0600443102 /* BeaconListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconListTableViewController.h; path = viewcontroller/BeaconListTableViewController.h; sourceTree = "<group>"; };
+		043E09A01C7E4D0600443102 /* BeaconListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconListTableViewController.m; path = viewcontroller/BeaconListTableViewController.m; sourceTree = "<group>"; };
 		0457C5871C7912C900BF34AF /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconManager.h; path = control/BeaconManager.h; sourceTree = "<group>"; };
 		0457C5881C7912C900BF34AF /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconManager.m; path = control/BeaconManager.m; sourceTree = "<group>"; };
 		0457C58A1C79195400BF34AF /* BeaconItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconItem.h; path = model/BeaconItem.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */,
 				04F2E7F11C7A22E600677793 /* AddProjectViewController.h */,
 				04F2E7F21C7A22E600677793 /* AddProjectViewController.m */,
+				043E099F1C7E4D0600443102 /* BeaconListTableViewController.h */,
+				043E09A01C7E4D0600443102 /* BeaconListTableViewController.m */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				04F2E7FD1C7A246600677793 /* ProjectEntity.m in Sources */,
 				049D1E191C74026D002B1432 /* UIColor+HexString.m in Sources */,
 				049D1E151C73FAA1002B1432 /* ProjectsViewController.m in Sources */,
+				043E09A11C7E4D0600443102 /* BeaconListTableViewController.m in Sources */,
 				0497F2881C7287F2009690DE /* LoginViewController.m in Sources */,
 				04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */,
 				049D1E3E1C74F9B0002B1432 /* LastStepViewController.m in Sources */,

@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnU-YX-sJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="948"/>
+            <point key="canvasLocation" x="607" y="916"/>
         </scene>
         <!--Instruction View Controller-->
         <scene sceneID="IED-gm-89L">
@@ -341,12 +341,12 @@
                         <outlet property="continueBtn" destination="hLa-Md-WsY" id="Jhn-hO-TYM"/>
                         <outlet property="instructionLbl" destination="2Vg-4H-MSO" id="UNC-9n-RJk"/>
                         <outlet property="titleLbl" destination="F99-IF-6xJ" id="VNz-RI-jpZ"/>
-                        <segue destination="lkD-mU-a6n" kind="push" identifier="startSegue" id="DzS-cO-OL7"/>
+                        <segue destination="ag6-a6-GFO" kind="push" identifier="beaconlistSegue" id="6GG-3H-63T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N8-uY-avX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="939"/>
+            <point key="canvasLocation" x="1039" y="910"/>
         </scene>
         <!--PROJECTS-->
         <scene sceneID="sy9-W1-XOG">
@@ -1233,6 +1233,65 @@
             </objects>
             <point key="canvasLocation" x="1854" y="1641"/>
         </scene>
+        <!--BEACON LIST-->
+        <scene sceneID="Yjk-ja-yN3">
+            <objects>
+                <tableViewController id="ag6-a6-GFO" customClass="BeaconListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rp0-cd-4ft">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="beaconlistCell" textLabel="KRR-gM-olI" detailTextLabel="vrm-2K-5Qf" style="IBUITableViewCellStyleSubtitle" id="fhe-4j-Cqn">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fhe-4j-Cqn" id="rNY-cr-2fB">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KRR-gM-olI">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vrm-2K-5Qf">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ag6-a6-GFO" id="JO0-lX-Frp"/>
+                            <outlet property="delegate" destination="ag6-a6-GFO" id="IRG-nO-722"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="BEACON LIST" id="bWu-iP-sQL">
+                        <barButtonItem key="leftBarButtonItem" id="KuP-40-huC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6uB-BY-urN">
+                                <rect key="frame" x="16" y="7" width="22" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menu_button.png"/>
+                                <connections>
+                                    <action selector="onMenu:" destination="ag6-a6-GFO" eventType="touchUpInside" id="Ckf-KZ-nm3"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lkD-mU-a6n" kind="push" identifier="startSegue" id="pQK-YQ-sMW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNC-c2-ZCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1416" y="910"/>
+        </scene>
         <!--PROJECT NAME1-->
         <scene sceneID="Zis-aU-9M9">
             <objects>
@@ -1330,7 +1389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIw-sj-PeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="939"/>
+            <point key="canvasLocation" x="1780" y="910"/>
         </scene>
     </scenes>
     <resources>

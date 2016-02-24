@@ -35,7 +35,10 @@
         }
         else
         {
-            
+            self.locationManager = [[CLLocationManager alloc] init];
+            self.locationManager.delegate = self;
+            [self.locationManager requestAlwaysAuthorization];
+
             NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:BEACON1_UUID];
             NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:BEACON2_UUID];
             BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:uuid1 major:4660 minor:22136];
@@ -49,16 +52,16 @@
 
 - (void)startItems
 {
-    [self stopItems];
-
-    self.beaconManager = [[KCSBeaconManager alloc] init];
-    self.beaconManager.delegate = self;
-    self.beaconManager.postsLocalNotification = YES;
-    
     for (BeaconItem *itemData in _storedItems) {
         
-        [self.beaconManager startMonitoringForRegion:itemData.uuid.UUIDString identifier:itemData.name error:nil];
-
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:itemData.uuid identifier:itemData.name];
+        region.notifyOnEntry = YES;
+        region.notifyOnExit = YES;
+        // launch app when display is turned on and inside region
+        region.notifyEntryStateOnDisplay = YES;
+        
+        [self.locationManager startMonitoringForRegion:region];
+        [self.locationManager startRangingBeaconsInRegion:region];
     }
 }
 
@@ -66,51 +69,72 @@
 {
     for (BeaconItem *itemData in _storedItems) {
         
-        [self.beaconManager stopMonitoringForRegion:itemData.name];
+        CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:itemData];
+        [self.locationManager stopMonitoringForRegion:beaconRegion];
+        [self.locationManager stopRangingBeaconsInRegion:beaconRegion];
     }
 }
 
-#pragma mark - KCSBeaconManagerDelegate
-- (void) newNearestBeacon:(CLBeacon*)beacon
+- (CLBeaconRegion *)beaconRegionWithItem:(BeaconItem *)item {
+    
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:item.uuid
+                                                                           major:item.majorValue
+                                                                           minor:item.minorValue
+                                                                      identifier:item.name];
+    return beaconRegion;
+}
+
+- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion *)region
+{
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
+        
+        // Find out which beacon you have,
+        // I check just UUID but maybe your beacons have the same uuid but major, minor are difference so you need to check minor/major as well
+        if ([beaconRegion.proximityUUID isEqual:BEACON1_UUID]) {
+            
+            //Do some stuff
+            NSLog(@"Entered Reion 1");
+        }
+        
+        if ([beaconRegion.proximityUUID isEqual:BEACON2_UUID]) {
+            
+            //Do some stuff
+            NSLog(@"Entered Reion 2");
+        }
+    }
+    
+}
+
+-(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion *)region
 {
 
-    // Beacon found!
+}
 
+-(void)locationManager:(CLLocationManager*)manager
+       didRangeBeacons:(NSArray*)beacons
+              inRegion:(CLBeaconRegion*)region
+{
+    // Beacon found!
+    
+    if (beacons.count == 0) return;
+   
     [self stopItems];
 
+    CLBeacon *beacon = [beacons firstObject];
     // You can retrieve the beacon data from its properties
     NSString *uuid = beacon.proximityUUID.UUIDString;
-    
-    NSLog(@"UUID is %@" ,uuid);
-    
-    NSLog(@"Accuracy is %f" ,beacon.accuracy);
+    if (uuid != nil) NSLog(@"UUID is %@" ,uuid);
     
     if (uuid != nil && [uuid isEqualToString:BEACON1_UUID])
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon1found" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon1found" object:self userInfo:@{@"name" : BEACON1_NAME ,@"uuid" : BEACON1_UUID}];
     }
     else if (uuid != nil && [uuid isEqualToString:BEACON2_UUID])
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self userInfo:@{@"name" : BEACON2_NAME ,@"uuid" : BEACON2_UUID}];
         
     }
-    
-}
-
-- (NSString*) localNotificationMessageForBeacon:(CLBeaconRegion*)region event:(KCSIBeaconRegionEvent)eventCode
-{
-    // return message for local notification
-    return nil;
-}
-
-- (void) enteredRegion:(CLBeaconRegion*)region
-{
-    
-}
-
-- (void) exitedRegion:(CLBeaconRegion*)region
-{
-    
 }
 
 @end
