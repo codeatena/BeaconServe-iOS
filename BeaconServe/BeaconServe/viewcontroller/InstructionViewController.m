@@ -71,8 +71,8 @@
 
 - (IBAction)onContinue:(id)sender
 {
-    //
-    [[BeaconManager sharedManager] loadItems];
+    
+    [[BeaconManager sharedManager] startItems];
 }
 
 - (void) receiveTestNotification:(NSNotification *) notification

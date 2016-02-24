@@ -27,10 +27,6 @@
     {
         _storedItems = [NSMutableArray new];
         
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        [self.locationManager requestAlwaysAuthorization];
-        
         // Check if beacon monitoring is available for this device
         if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
             
@@ -41,6 +37,7 @@
         {
             self.beaconManager = [[KCSBeaconManager alloc] init];
             self.beaconManager.delegate = self;
+            self.beaconManager.postsLocalNotification = YES;
             
             NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:BEACON1_UUID];
             NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:BEACON2_UUID];
@@ -54,7 +51,7 @@
     return self;
 }
 
-- (void)loadItems
+- (void)startItems
 {
     for (BeaconItem *itemData in _storedItems) {
         
@@ -68,7 +65,8 @@
 {
     for (BeaconItem *itemData in _storedItems) {
         
-        [self stopMonitoringItem:itemData];
+        //[self stopMonitoringItem:itemData];
+        [self.beaconManager stopMonitoringForRegion:itemData.name];
     }
 }
 
@@ -80,41 +78,14 @@
     return beaconRegion;
 }
 
-- (void)startMonitoringItem:(BeaconItem *)item {
-    CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
-    [self.locationManager startMonitoringForRegion:beaconRegion];
-    [self.locationManager startRangingBeaconsInRegion:beaconRegion];
-}
-
-- (void)stopMonitoringItem:(BeaconItem *)item {
-    CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
-    [self.locationManager stopMonitoringForRegion:beaconRegion];
-    [self.locationManager stopRangingBeaconsInRegion:beaconRegion];
-}
-
-#pragma mark - CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion *)region
+#pragma mark - KCSBeaconManagerDelegate
+- (void) newNearestBeacon:(CLBeacon*)beacon
 {
-    // We entered a region, now start looking for our target beacons!
-    [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
-}
 
--(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion *)region
-{
-    // Exited the region
-    [self.locationManager stopRangingBeaconsInRegion:self.myBeaconRegion];
-}
-
--(void)locationManager:(CLLocationManager*)manager
-       didRangeBeacons:(NSArray*)beacons
-              inRegion:(CLBeaconRegion*)region
-{
     // Beacon found!
     
-    CLBeacon *foundBeacon = [beacons firstObject];
-    
     // You can retrieve the beacon data from its properties
-    NSString *uuid = foundBeacon.proximityUUID.UUIDString;
+    NSString *uuid = beacon.proximityUUID.UUIDString;
     
     NSLog(@"UUID is %@" ,uuid);
     
@@ -125,27 +96,15 @@
     else if (uuid != nil && [uuid isEqualToString:BEACON2_UUID])
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self];
-
+        
     }
     
-    //NSString *major = [NSString stringWithFormat:@"%@", foundBeacon.major];
-    //NSString *minor = [NSString stringWithFormat:@"%@", foundBeacon.minor];
 }
 
-- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    NSLog(@"Failed monitoring region: %@", error);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"Location manager failed: %@", error);
-}
-
-- (void) newNearestBeacon:(CLBeacon*)beacon
+- (NSString*) localNotificationMessageForBeacon:(CLBeaconRegion*)region event:(KCSIBeaconRegionEvent)eventCode
 {
-    NSString *uuid = beacon.proximityUUID.UUIDString;
-    
-    if (uuid != nil) NSLog(@"UUID is %@" ,uuid);
-    
+    // return message for local notification
+    return nil;
 }
 
 @end

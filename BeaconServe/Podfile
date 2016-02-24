@@ -12,5 +12,4 @@ pod 'PureLayout'
 pod 'M13Checkbox'
 pod 'RSTCoreDataKit'
 pod 'KCSIBeacon'
-
 end

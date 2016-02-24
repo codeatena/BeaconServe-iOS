@@ -11,15 +11,12 @@
 
 @interface BeaconManager : NSObject <CLLocationManagerDelegate ,KCSBeaconManagerDelegate>
 
-@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
-@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic ,strong) NSMutableArray *storedItems;
-
 @property (nonatomic ,strong) KCSBeaconManager *beaconManager;
 
 + (id)sharedManager;
 
-- (void)loadItems;
+- (void)startItems;
 - (void)stopItems;
 
 @end
