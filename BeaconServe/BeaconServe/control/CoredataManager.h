@@ -20,5 +20,6 @@
 + (id)sharedManager;
 - (void)createProjet:(NSString *)name image1:(UIImage *)image1 image2:(UIImage *)image2;
 - (NSArray *) getArrayProjects;
+- (void)deleteProject:(ProjectEntity *)project;
 
 @end

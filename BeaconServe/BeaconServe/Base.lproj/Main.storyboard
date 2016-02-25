@@ -421,11 +421,24 @@
                                                         <constraint firstAttribute="trailing" secondItem="iAo-5R-hg8" secondAttribute="trailing" constant="15" id="rC9-VE-9Ui"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-d3-dyn">
+                                                    <rect key="frame" x="5" y="5" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="S2j-ea-H1S"/>
+                                                        <constraint firstAttribute="width" constant="30" id="xGN-6D-tXo"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete_icon.png"/>
+                                                    <connections>
+                                                        <action selector="onDelete:" destination="i9X-Vj-mAv" eventType="touchUpInside" id="Vzs-um-6r2"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="ykg-d3-dyn" firstAttribute="top" secondItem="i9X-Vj-mAv" secondAttribute="top" constant="5" id="BXQ-Wm-DHw"/>
+                                            <constraint firstItem="ykg-d3-dyn" firstAttribute="leading" secondItem="i9X-Vj-mAv" secondAttribute="leading" constant="5" id="EmH-ad-HsA"/>
                                             <constraint firstItem="u6l-6V-2nP" firstAttribute="top" secondItem="i9X-Vj-mAv" secondAttribute="top" constant="10" id="JiG-Bz-aCm"/>
                                             <constraint firstAttribute="trailing" secondItem="u6l-6V-2nP" secondAttribute="trailing" constant="10" id="aXo-1Y-25d"/>
                                             <constraint firstAttribute="bottom" secondItem="u6l-6V-2nP" secondAttribute="bottom" constant="10" id="qtW-H7-KDv"/>
@@ -1463,6 +1476,7 @@
         <image name="camera.png" width="188" height="148"/>
         <image name="camera_back.png" width="638" height="832"/>
         <image name="camera_button.png" width="207" height="204"/>
+        <image name="delete_icon.png" width="82" height="82"/>
         <image name="login_background.png" width="750" height="1334"/>
         <image name="logo.png" width="539" height="129"/>
         <image name="map_icon3.png" width="42" height="57"/>

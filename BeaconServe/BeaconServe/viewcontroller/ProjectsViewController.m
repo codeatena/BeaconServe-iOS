@@ -96,4 +96,15 @@
     [self performSegueWithIdentifier:@"directionSegue" sender:nil];
 }
 
+- (void)doDelete:(ProjectCollectionViewCell *)cell
+{
+    NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
+    ProjectEntity *entity = [_projectArr objectAtIndex:indexPath.row];
+    [[CoredataManager sharedManager] deleteProject:entity];
+    
+    [_projectArr removeAllObjects];
+    [_projectArr addObjectsFromArray:[[CoredataManager sharedManager] getArrayProjects]];
+    [_collectionView reloadData];
+}
+
 @end

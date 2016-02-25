@@ -59,4 +59,11 @@
     return fetchedObjects;
 }
 
+- (void)deleteProject:(ProjectEntity *)project
+{
+    [_stack.managedObjectContext deleteObject:project];
+    [RSTCoreDataContextSaver saveAndWait:_stack.managedObjectContext];
+    
+}
+
 @end

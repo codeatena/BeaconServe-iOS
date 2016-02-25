@@ -30,6 +30,11 @@
     [self.cellDelegate doSelect:self];
 }
 
+- (IBAction)onDelete:(id)sender
+{
+    [self.cellDelegate doDelete:self];
+}
+
 - (void)setEntity:(ProjectEntity *)entity
 {
     _nameLbl.text = entity.projectname;

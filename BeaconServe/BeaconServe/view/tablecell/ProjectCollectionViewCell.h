@@ -14,6 +14,9 @@
 
 - (void)doSelect:(ProjectCollectionViewCell *)cell;
 
+@optional
+- (void)doDelete:(ProjectCollectionViewCell *)cell;
+
 @end
 
 @interface ProjectCollectionViewCell : UICollectionViewCell
@@ -23,6 +26,8 @@
 @property (nonatomic ,assign) IBOutlet UIImageView *thumbImageView;
 
 - (IBAction)onSelect:(id)sender;
+- (IBAction)onDelete:(id)sender;
+
 - (void)setEntity:(ProjectEntity *)entity;
 - (void)setEntity:(ProjectEntity *)entity identifier:(NSString *)identifier;
 
