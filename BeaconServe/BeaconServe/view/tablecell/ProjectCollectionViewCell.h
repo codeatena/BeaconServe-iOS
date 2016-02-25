@@ -24,6 +24,7 @@
 
 - (IBAction)onSelect:(id)sender;
 - (void)setEntity:(ProjectEntity *)entity;
+- (void)setEntity:(ProjectEntity *)entity identifier:(NSString *)identifier;
 
 @property (nonatomic ,weak) id <ProjectCollectionViewCellDelegate> cellDelegate;
 

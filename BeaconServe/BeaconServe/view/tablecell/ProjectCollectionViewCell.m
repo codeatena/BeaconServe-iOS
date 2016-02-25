@@ -36,4 +36,15 @@
     _thumbImageView.image = [UIImage imageWithData:entity.picture1];
 }
 
+- (void)setEntity:(ProjectEntity *)entity identifier:(NSString *)identifier
+{
+    _nameLbl.text = entity.projectname;
+    
+    if ([identifier isEqualToString:@"beacon1"])
+        _thumbImageView.image = [UIImage imageWithData:entity.picture1];
+    else
+        _thumbImageView.image = [UIImage imageWithData:entity.picture2];
+
+}
+
 @end
