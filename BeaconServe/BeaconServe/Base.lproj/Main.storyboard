@@ -342,6 +342,7 @@
                         <outlet property="instructionLbl" destination="2Vg-4H-MSO" id="UNC-9n-RJk"/>
                         <outlet property="titleLbl" destination="F99-IF-6xJ" id="VNz-RI-jpZ"/>
                         <segue destination="uVS-sI-bvO" kind="push" identifier="beaconlistSegue" id="CM0-BI-NPr"/>
+                        <segue destination="lkD-mU-a6n" kind="push" identifier="startSegue1" id="WnW-pc-JaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N8-uY-avX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,7 +639,7 @@
         <!--PROJECT NAME1-->
         <scene sceneID="LXZ-M9-8Na">
             <objects>
-                <viewController id="Dfn-Ww-wD4" customClass="QuestionType1ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionType1ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dfn-Ww-wD4" customClass="QuestionType1ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ozb-Mg-xo7"/>
                         <viewControllerLayoutGuide type="bottom" id="jDy-0i-464"/>
@@ -660,7 +661,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="fGy-i4-03M" kind="push" id="t8i-q7-mQC"/>
+                                            <action selector="onNext:" destination="Dfn-Ww-wD4" eventType="touchUpInside" id="cpg-Tf-pPc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long have you been researched these types of products ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDq-g8-fks">
@@ -672,7 +673,7 @@
                                         <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-B4-MVZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-B4-MVZ">
                                         <rect key="frame" x="15" y="19" width="250" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Dcr-Zb-oRD"/>
@@ -787,7 +788,7 @@
         <!--PROJECT NAME1-->
         <scene sceneID="PtA-5e-jH3">
             <objects>
-                <viewController id="fGy-i4-03M" customClass="QuestionType2ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionType2ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fGy-i4-03M" customClass="QuestionType2ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jpa-ln-VAx"/>
                         <viewControllerLayoutGuide type="bottom" id="S5r-bc-wEv"/>
@@ -809,7 +810,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="0qo-Ow-kgj" kind="push" id="hMt-Vv-G6P"/>
+                                            <action selector="onNext:" destination="fGy-i4-03M" eventType="touchUpInside" id="RjH-uN-q5D"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please rank your experience  in this category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhS-j9-Vdm">
@@ -818,15 +819,6 @@
                                             <constraint firstAttribute="height" constant="42" id="ICn-dL-Qet"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-Iv-cv4">
-                                        <rect key="frame" x="15" y="91" width="250" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="6BE-w7-Bkm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -843,7 +835,7 @@
                                             <action selector="onBack:" destination="fGy-i4-03M" eventType="touchUpInside" id="h49-Lt-Tvg"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please rate the following questions to rank your satisfaction with this category. 1=Not at all 10=Completely satisfied" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYL-L9-x3o">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please rank how important you feel this category is in your life.  10=very important, 1=not very important." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYL-L9-x3o">
                                         <rect key="frame" x="14" y="15" width="252" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="l4k-zX-HRR"/>
@@ -958,6 +950,15 @@
                                             <constraint firstAttribute="width" secondItem="Rwf-0P-ypt" secondAttribute="height" multiplier="8:1" id="lzZ-Mh-wJ6"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-Iv-cv4">
+                                        <rect key="frame" x="15" y="91" width="250" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="6BE-w7-Bkm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.043137254899999998" green="0.20000000000000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1007,6 +1008,7 @@
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="backBtn" destination="pdm-lk-AIq" id="THQ-M4-GcC"/>
                         <outlet property="descriptionLbl" destination="rhS-j9-Vdm" id="YBc-AI-mZW"/>
@@ -1032,7 +1034,7 @@
         <!--PROJECT NAME1-->
         <scene sceneID="v5r-hx-iaH">
             <objects>
-                <viewController id="0qo-Ow-kgj" customClass="QuestionType3ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionType3ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0qo-Ow-kgj" customClass="QuestionType3ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cke-ye-1vT"/>
                         <viewControllerLayoutGuide type="bottom" id="0CH-bA-oaN"/>
@@ -1053,9 +1055,6 @@
                                         <state key="normal" title="NEXT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="vWy-B6-80Z" kind="push" id="PRw-6E-Heh"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why did you choose your overall rankings ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nk-wh-fJx">
                                         <rect key="frame" x="20" y="145" width="240" height="42"/>
@@ -1152,6 +1151,7 @@
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="answerTextView" destination="LvN-cB-TMh" id="kzv-Gm-95r"/>
                         <outlet property="backBtn" destination="5Qt-DL-T5r" id="Rmn-iI-fOw"/>
@@ -1168,7 +1168,7 @@
         <!--PROJECT NAME1-->
         <scene sceneID="TKs-Sg-AlS">
             <objects>
-                <viewController id="vWy-B6-80Z" customClass="LastStepViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LastStepViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vWy-B6-80Z" customClass="LastStepViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9o0-GO-YI6"/>
                         <viewControllerLayoutGuide type="bottom" id="Ebb-Ls-pir"/>
@@ -1236,6 +1236,7 @@
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="descriptionLbl" destination="LxC-JJ-ccL" id="fGp-qE-gWe"/>
                         <outlet property="projectImageView" destination="lrs-ig-r31" id="L4B-KS-vE1"/>
@@ -1399,7 +1400,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Dfn-Ww-wD4" kind="push" id="tB0-Ic-Vtn"/>
+                                            <action selector="onSart:" destination="lkD-mU-a6n" eventType="touchUpInside" id="OuD-3m-AgP"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYc-uv-EvA">
@@ -1464,11 +1465,12 @@
                         <outlet property="projectImageView" destination="Fdg-tT-IbP" id="lsw-ya-d4g"/>
                         <outlet property="startBtn" destination="mvi-q7-jjG" id="kgX-Lw-aP7"/>
                         <outlet property="titltLbl" destination="9nG-fe-5tE" id="qMA-i7-kcP"/>
+                        <segue destination="Dfn-Ww-wD4" kind="push" identifier="questionSegue" id="CoB-De-EcC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIw-sj-PeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="910"/>
+            <point key="canvasLocation" x="1870" y="916"/>
         </scene>
     </scenes>
     <resources>
@@ -1483,4 +1485,7 @@
         <image name="menu_button.png" width="62" height="81"/>
         <image name="placeholder.png" width="420" height="420"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WnW-pc-JaG"/>
+    </inferredMetricsTieBreakers>
 </document>

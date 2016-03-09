@@ -11,7 +11,9 @@
 
 @interface QuestionType1ViewController () <UITableViewDataSource , UITableViewDelegate>
 
+@property (nonatomic ,strong) NSArray *answerArr;
 @property (nonatomic ,strong) NSArray *questionArr;
+
 @property (nonatomic ,assign) IBOutlet UITableView *tableView;
 
 @end
@@ -38,7 +40,14 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    _questionArr = @[@"Just starting" , @"One to three months" , @"Three to six months"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Questions" ofType:@"plist"];
+    _questionArr = [NSArray arrayWithContentsOfFile:path];
+
+    NSDictionary *dic = [_questionArr objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _answerArr = dic[@"answer"];
+    _descriptionLbl.text = dic[@"question"];
+    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue] + 1];
+    
     _newIndex = _oldIndex = -1;
     
     [self setFont];
@@ -70,15 +79,44 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)onNext:(id)sender
+{
+    NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
+    if (index < _questionArr.count - 1)
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
+        
+        NSDictionary *dic = [_questionArr objectAtIndex:index + 1];
+        if ([dic[@"answer"] count] < 10)
+        {
+            //
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType1ViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        else
+        {
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType2ViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }
+    else
+    {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LastStepViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return _answerArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QuestionTableViewCell *cell = (QuestionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"questionCell" forIndexPath:indexPath];
-    cell.titleLbl.text = [_questionArr objectAtIndex:indexPath.row];
+    cell.titleLbl.text = [_answerArr objectAtIndex:indexPath.row];
     return cell;
 }
 

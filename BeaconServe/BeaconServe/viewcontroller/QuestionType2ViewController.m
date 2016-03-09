@@ -10,6 +10,9 @@
 
 @interface QuestionType2ViewController ()
 
+@property (nonatomic ,strong) NSArray *answerArr;
+@property (nonatomic ,strong) NSArray *questionArr;
+
 @end
 
 @implementation QuestionType2ViewController
@@ -35,6 +38,15 @@
     _newIndex = _oldIndex = -1;
 
     [self setFont];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Questions" ofType:@"plist"];
+    _questionArr = [NSArray arrayWithContentsOfFile:path];
+    
+    NSDictionary *dic = [_questionArr objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _answerArr = dic[@"answer"];
+    _topLbl.text = dic[@"question"];
+    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue] + 1];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +73,35 @@
 - (IBAction)onBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onNext:(id)sender
+{
+    NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
+    if (index < _questionArr.count - 1)
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
+        
+        NSDictionary *dic = [_questionArr objectAtIndex:index + 1];
+        if ([dic[@"answer"] count] < 10)
+        {
+            //
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType1ViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        else
+        {
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType2ViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }
+    else
+    {
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LastStepViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 -(IBAction) buttonPressed:(id)sender

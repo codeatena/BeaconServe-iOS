@@ -64,6 +64,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)onSart:(id)sender
+{
+    [self performSegueWithIdentifier:@"questionSegue" sender:nil];
+}
+
 - (void)setFont
 {
     [_startBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>female</string>
+			<string>male</string>
+		</array>
+		<key>question</key>
+		<string>Gender </string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>60+</string>
+			<string>40 -60</string>
+			<string>18-24</string>
+			<string>25-39</string>
+		</array>
+		<key>question</key>
+		<string>Age</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>Single</string>
+			<string>Married </string>
+		</array>
+		<key>question</key>
+		<string>Marital Status</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>Litter</string>
+			<string>3</string>
+			<string>2</string>
+			<string>1</string>
+		</array>
+		<key>question</key>
+		<string>Children</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>Home Maker</string>
+			<string>Engineering</string>
+			<string>Education</string>
+			<string>Medical</string>
+			<string>Finance</string>
+			<string>sales/marketing</string>
+		</array>
+		<key>question</key>
+		<string>profession </string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>&gt;$100,000</string>
+			<string>&gt;$50,000</string>
+			<string>&lt;$50,000</string>
+		</array>
+		<key>question</key>
+		<string>HH Income</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>Mulltipe Races</string>
+			<string>Asian</string>
+			<string>female</string>
+			<string>African American</string>
+		</array>
+		<key>question</key>
+		<string>Race</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>No</string>
+			<string>Yes</string>
+		</array>
+		<key>question</key>
+		<string>Primary Shopper</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>Other</string>
+			<string>Kids</string>
+			<string>Husband</string>
+			<string>Wife</string>
+		</array>
+		<key>question</key>
+		<string>If no Who is primary shopper</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>10</string>
+			<string>9</string>
+			<string>8</string>
+			<string>7</string>
+			<string>6</string>
+			<string>5</string>
+			<string>4</string>
+			<string>3</string>
+			<string>2</string>
+			<string>1</string>
+		</array>
+		<key>question</key>
+		<string>Please rank how important you feel this category is in your life.  10=very important, 1=not very important.</string>
+	</dict>
+	<dict>
+		<key>answer</key>
+		<array>
+			<string>More then 3 months</string>
+			<string>One to 3 months</string>
+			<string>Just Starting</string>
+		</array>
+		<key>question</key>
+		<string>How long have you been reseaching these types of products</string>
+	</dict>
+</array>
+</plist>
