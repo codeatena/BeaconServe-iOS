@@ -60,10 +60,10 @@
 
 - (IBAction)onContinue:(id)sender
 {
-    //[self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
+    [self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
     
-    [[NSUserDefaults standardUserDefaults] setValue:@(0) forKey:kQuestionIndex];
-    [self performSegueWithIdentifier:@"startSegue1" sender:nil];
+//    [[NSUserDefaults standardUserDefaults] setValue:@(0) forKey:kQuestionIndex];
+//    [self performSegueWithIdentifier:@"startSegue1" sender:nil];
 }
 
 @end

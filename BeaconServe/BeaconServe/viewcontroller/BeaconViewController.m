@@ -114,8 +114,10 @@
     if ([notification.name isEqualToString:@"beacon1found"])
     {
         NSLog(@"Beacon 1 Found");
-        //[[NSUserDefaults standardUserDefaults] setValue:@"beacon1" forKey:@"beacon"];
-        //[self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:@"beacon1found"
+                                                      object:nil];
         
         [_beaconArr addObject:@{@"project" : [[CoredataManager sharedManager] currentProject] ,@"beacon" : @"beacon1"}];
         [self.collectionView reloadData];
@@ -123,8 +125,10 @@
     else if ([notification.name isEqualToString:@"beacon2found"])
     {
         NSLog(@"Beacon 2 Found");
-        //[[NSUserDefaults standardUserDefaults] setValue:@"beacon2" forKey:@"beacon"];
-        //[self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:@"beacon2found"
+                                                      object:nil];
         
         [_beaconArr addObject:@{@"project" : [[CoredataManager sharedManager] currentProject] ,@"beacon" : @"beacon2"}];
         [self.collectionView reloadData];

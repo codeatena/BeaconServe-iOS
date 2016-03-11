@@ -61,17 +61,6 @@
         region.notifyEntryStateOnDisplay = YES;
         
         [self.locationManager startMonitoringForRegion:region];
-        [self.locationManager startRangingBeaconsInRegion:region];
-    }
-}
-
-- (void)stopItems
-{
-    for (BeaconItem *itemData in _storedItems) {
-        
-        CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:itemData];
-        [self.locationManager stopMonitoringForRegion:beaconRegion];
-        [self.locationManager stopRangingBeaconsInRegion:beaconRegion];
     }
 }
 
@@ -86,29 +75,22 @@
 
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion *)region
 {
-    if ([region isKindOfClass:[CLBeaconRegion class]]) {
-        CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
-        
-        // Find out which beacon you have,
-        // I check just UUID but maybe your beacons have the same uuid but major, minor are difference so you need to check minor/major as well
-        if ([beaconRegion.proximityUUID isEqual:BEACON1_UUID]) {
-            
-            //Do some stuff
-            NSLog(@"Entered Reion 1");
-        }
-        
-        if ([beaconRegion.proximityUUID isEqual:BEACON2_UUID]) {
-            
-            //Do some stuff
-            NSLog(@"Entered Reion 2");
-        }
+    NSLog(@"Entered Reion");
+    
+    if (region.identifier.length != 0) {
+        [self.locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
     }
     
 }
 
--(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion *)region
-{
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
 
+    NSLog(@"Exited Reion");
+
+    if (region.identifier.length != 0) {
+
+        [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
+    }
 }
 
 -(void)locationManager:(CLLocationManager*)manager
@@ -116,11 +98,8 @@
               inRegion:(CLBeaconRegion*)region
 {
     // Beacon found!
-    
     if (beacons.count == 0) return;
    
-    [self stopItems];
-
     CLBeacon *beacon = [beacons firstObject];
     // You can retrieve the beacon data from its properties
     NSString *uuid = beacon.proximityUUID.UUIDString;
@@ -135,6 +114,16 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self userInfo:@{@"name" : BEACON2_NAME ,@"uuid" : BEACON2_UUID}];
         
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    if ([region isKindOfClass:[CLBeaconRegion class]] && state == CLRegionStateInside) {
+        [self locationManager:manager didEnterRegion:region];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *) manager didStartMonitoringForRegion:(CLRegion *) region {
+    [manager requestStateForRegion:region];
 }
 
 @end

@@ -17,6 +17,5 @@
 + (id)sharedManager;
 
 - (void)startItems;
-- (void)stopItems;
 
 @end
