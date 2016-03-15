@@ -1,4 +1,5 @@
 PODS:
+  - CHCSVParser (2.1.0)
   - IQKeyboardManager (4.0.0)
   - KCSIBeacon (1.2.0)
   - M13Checkbox (1.2.0)
@@ -6,6 +7,7 @@ PODS:
   - RSTCoreDataKit (0.1.2)
 
 DEPENDENCIES:
+  - CHCSVParser
   - IQKeyboardManager
   - KCSIBeacon
   - M13Checkbox
@@ -13,6 +15,7 @@ DEPENDENCIES:
   - RSTCoreDataKit
 
 SPEC CHECKSUMS:
+  CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
   IQKeyboardManager: b91928f7927ba55a5829b4dcf4b7a6736ac9fc22
   KCSIBeacon: e3936e8fea8531579ba884d84e72ac2668fb050a
   M13Checkbox: 741b406a1d72415e3e3af9b9b6347ff345ed2f97

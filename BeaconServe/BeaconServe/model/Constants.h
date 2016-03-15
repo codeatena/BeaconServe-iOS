@@ -16,5 +16,6 @@
 #define BEACON2_NAME        @"DARKO StoreAxis2"
 
 #define kQuestionIndex      @"questionindex"
+#define kAnswerArray        @"answerArray"
 
 #endif /* Constants_h */

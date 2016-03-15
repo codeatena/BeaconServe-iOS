@@ -9,12 +9,14 @@
 #import "QuestionType1ViewController.h"
 #import "QuestionTableViewCell.h"
 
-@interface QuestionType1ViewController () <UITableViewDataSource , UITableViewDelegate>
+@interface QuestionType1ViewController () <UITableViewDataSource , UITableViewDelegate ,CHCSVParserDelegate>
 
-@property (nonatomic ,strong) NSArray *answerArr;
-@property (nonatomic ,strong) NSArray *questionArr;
+@property (nonatomic ,strong) NSMutableArray *answerArr;
 
 @property (nonatomic ,assign) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *currentRow;
+@property (nonatomic ,strong) NSMutableDictionary *dict;
 
 @end
 
@@ -40,17 +42,13 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Questions" ofType:@"plist"];
-    _questionArr = [NSArray arrayWithContentsOfFile:path];
-
-    NSDictionary *dic = [_questionArr objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
-    _answerArr = dic[@"answer"];
-    _descriptionLbl.text = dic[@"question"];
-    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue] + 1];
-    
-    _newIndex = _oldIndex = -1;
-    
     [self setFont];
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *fileURL = [bundle URLForResource:@"Question" withExtension:@"csv"];
+    CHCSVParser *parser=[[CHCSVParser alloc] initWithContentsOfCSVURL:fileURL];
+    parser.delegate=self;
+    [parser parse];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,29 +74,31 @@
 
 - (IBAction)onBack:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
+    [[NSUserDefaults standardUserDefaults] setValue:@(index - 1) forKey:kQuestionIndex];
+
+    //[self.navigationController popViewControllerAnimated:YES];
+
+    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:4];
+    [self.navigationController popToViewController:vc animated:YES];
 }
 
 - (IBAction)onNext:(id)sender
 {
     NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
-    if (index < _questionArr.count - 1)
+    
+    [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
+    
+    NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
+    [answerArr addObject:[NSString stringWithFormat:@"%d" ,_newIndex + 1]];
+    [[NSUserDefaults standardUserDefaults] setObject:answerArr forKey:kAnswerArray];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if (index < _currentRow.count - 1)
     {
-        [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
-        
-        NSDictionary *dic = [_questionArr objectAtIndex:index + 1];
-        if ([dic[@"answer"] count] < 10)
-        {
-            //
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType1ViewController"];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        else
-        {
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType2ViewController"];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType1ViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }
     else
@@ -117,6 +117,18 @@
 {
     QuestionTableViewCell *cell = (QuestionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"questionCell" forIndexPath:indexPath];
     cell.titleLbl.text = [_answerArr objectAtIndex:indexPath.row];
+    
+    if (_newIndex == indexPath.row)
+    {
+        cell.backgroundColor = [UIColor colorWithHexString:@"#a6f178"];
+        cell.titleLbl.textColor = [UIColor whiteColor];
+    }
+    else{
+
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.titleLbl.textColor = [UIColor colorWithHexString:@"#a6f178"];
+    }
+    
     return cell;
 }
 
@@ -130,7 +142,7 @@
     cell1.titleLbl.textColor = [UIColor whiteColor];
     
     // make old cell into white color
-    if (_oldIndex != -1 && _newIndex != _oldIndex)
+    if (_newIndex != _oldIndex)
     {
         QuestionTableViewCell *cell1 = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_oldIndex inSection:indexPath.section]];
         cell1.backgroundColor = [UIColor whiteColor];
@@ -150,4 +162,56 @@
     [self.descriptionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
 }
 
+- (void)displayQuestion
+{
+
+    NSDictionary *dic = [_currentRow objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _descriptionLbl.text = dic[@"0"];
+    _answerArr = [[NSMutableArray alloc] init];
+
+    for (int i = 1 ; i < dic.allKeys.count ; i ++)
+    {
+        NSString *str = [dic objectForKey:[NSString stringWithFormat:@"%d" ,i]];
+        if (str.length >  0)
+            [_answerArr addObject:[dic objectForKey:[NSString stringWithFormat:@"%d" ,i]]];
+    }
+    
+    _titltLbl.text = [NSString stringWithFormat:@"Question %d" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _oldIndex = 0;_newIndex = 0;
+    [_tableView reloadData];
+
+}
+
+#pragma mark - CHCSVParserDelegate
+- (void)parserDidBeginDocument:(CHCSVParser *)parser;
+{
+     _currentRow = [[NSMutableArray alloc] init];
+}
+
+- (void)parserDidEndDocument:(CHCSVParser *)parser;
+{
+    [self displayQuestion];
+}
+
+- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber;
+{
+     _dict=[[NSMutableDictionary alloc]init];
+}
+
+- (void)parser:(CHCSVParser *)parser didEndLine:(NSUInteger)recordNumber;
+{
+    [_currentRow addObject:_dict];
+    _dict=nil;
+}
+
+- (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex
+{
+     [_dict setObject:field forKey:[NSString stringWithFormat:@"%d",fieldIndex]];
+}
+
+- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error
+{
+    NSLog(@"Parse failed : %@" ,error.localizedDescription);
+}
+    
 @end

@@ -21,5 +21,6 @@
 #import "ProjectEntity.h"
 #import "ProjectEntity+CoreDataProperties.h"
 #import "Constants.h"
+#import "CHCSVParser.h"
 
 #endif /* BeaconServe_pch */

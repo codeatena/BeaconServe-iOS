@@ -13,4 +13,7 @@
 @property (nonatomic ,assign) IBOutlet UILabel *titltLbl;
 @property (nonatomic ,assign) IBOutlet UILabel *descriptionLbl;
 @property (nonatomic ,assign) IBOutlet UIImageView *projectImageView;
+
+- (IBAction)onTakePhoto:(id)sender;
+
 @end

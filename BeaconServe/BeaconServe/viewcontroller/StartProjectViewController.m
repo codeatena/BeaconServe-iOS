@@ -66,6 +66,14 @@
 
 - (IBAction)onSart:(id)sender
 {
+    // initialize question index and answer array
+    [[NSUserDefaults standardUserDefaults] setValue:@(1) forKey:kQuestionIndex];
+    
+    NSMutableArray *anwserArr = [NSMutableArray new];
+    [anwserArr addObject:@"answer"];
+    [[NSUserDefaults standardUserDefaults] setObject:anwserArr forKey:kAnswerArray];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     [self performSegueWithIdentifier:@"questionSegue" sender:nil];
 }
 

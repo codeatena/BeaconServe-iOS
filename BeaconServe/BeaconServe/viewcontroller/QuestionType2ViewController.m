@@ -45,7 +45,7 @@
     NSDictionary *dic = [_questionArr objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
     _answerArr = dic[@"answer"];
     _topLbl.text = dic[@"question"];
-    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue] + 1];
+    _titltLbl.text = [NSString stringWithFormat:@"Question %d" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue] + 1];
 
 }
 
@@ -112,7 +112,6 @@
 
         if (aButton.tag == _newIndex)
         {
-            //aButton.tintColor = [UIColor whiteColor];
             [aButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             aButton.backgroundColor = [UIColor colorWithHexString:@"#a6f178"];
         }
@@ -120,7 +119,6 @@
         if (aButton.tag == _oldIndex && _newIndex != _oldIndex)
         {
             aButton.backgroundColor = [UIColor whiteColor];
-            //aButton.tintColor = [UIColor colorWithHexString:@"#a6f178"];
             [aButton setTitleColor:[UIColor colorWithHexString:@"#a6f178"] forState:UIControlStateNormal];
 
         }
