@@ -120,13 +120,13 @@
     
     if (_newIndex == indexPath.row)
     {
-        cell.backgroundColor = [UIColor colorWithHexString:@"#a6f178"];
+        cell.backgroundColor = [UIColor colorWithHexString:@"#0B334F"];
         cell.titleLbl.textColor = [UIColor whiteColor];
     }
     else{
 
         cell.backgroundColor = [UIColor whiteColor];
-        cell.titleLbl.textColor = [UIColor colorWithHexString:@"#a6f178"];
+        cell.titleLbl.textColor = [UIColor colorWithHexString:@"#0B334F"];
     }
     
     return cell;
@@ -138,7 +138,7 @@
     
     // make selected cell into green color
     QuestionTableViewCell *cell1 = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
-    cell1.backgroundColor = [UIColor colorWithHexString:@"#a6f178"];
+    cell1.backgroundColor = [UIColor colorWithHexString:@"#0B334F"];
     cell1.titleLbl.textColor = [UIColor whiteColor];
     
     // make old cell into white color
@@ -146,7 +146,7 @@
     {
         QuestionTableViewCell *cell1 = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_oldIndex inSection:indexPath.section]];
         cell1.backgroundColor = [UIColor whiteColor];
-        cell1.titleLbl.textColor = [UIColor colorWithHexString:@"#a6f178"];
+        cell1.titleLbl.textColor = [UIColor colorWithHexString:@"#0B334F"];
     }
     
     _oldIndex = _newIndex;
