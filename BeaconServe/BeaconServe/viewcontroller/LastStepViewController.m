@@ -125,6 +125,8 @@
             [controller setSubject:@"Response"];
             
             NSData *noteData = [NSData dataWithContentsOfFile:filePath];
+            NSArray * array = [[NSArray alloc] initWithObjects:@"matthew@virtusventures.com", nil];
+            [controller setToRecipients: array];
             [controller addAttachmentData:noteData mimeType:@"text/csv" fileName:@"response.csv"];
             [controller addAttachmentData:UIImagePNGRepresentation(chosenImage) mimeType:@"image/png" fileName:@"image.png"];
             controller.mailComposeDelegate = self;
