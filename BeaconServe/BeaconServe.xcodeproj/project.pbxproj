@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042E5B481C90C9F600D821F1 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 042E5B471C90C9F600D821F1 /* Questions.plist */; };
 		043E09A41C7E79EE00443102 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E09A31C7E79EE00443102 /* BeaconViewController.m */; };
 		043E09A61C7E81C300443102 /* delete_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 043E09A51C7E81C300443102 /* delete_icon.png */; };
 		0457C5891C7912C900BF34AF /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457C5881C7912C900BF34AF /* BeaconManager.m */; };
@@ -38,9 +37,7 @@
 		049D1E291C742672002B1432 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049D1E281C742672002B1432 /* CoreBluetooth.framework */; };
 		049D1E2C1C743114002B1432 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E2B1C743114002B1432 /* InstructionViewController.m */; };
 		049D1E2F1C749735002B1432 /* StartProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E2E1C749735002B1432 /* StartProjectViewController.m */; };
-		049D1E321C74BB47002B1432 /* QuestionType1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E311C74BB47002B1432 /* QuestionType1ViewController.m */; };
-		049D1E351C74BB56002B1432 /* QuestionType2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E341C74BB56002B1432 /* QuestionType2ViewController.m */; };
-		049D1E381C74BB62002B1432 /* QuestionType3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E371C74BB62002B1432 /* QuestionType3ViewController.m */; };
+		049D1E321C74BB47002B1432 /* QuestionTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E311C74BB47002B1432 /* QuestionTypeViewController.m */; };
 		049D1E3B1C74BC29002B1432 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3A1C74BC29002B1432 /* QuestionTableViewCell.m */; };
 		049D1E3E1C74F9B0002B1432 /* LastStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */; };
 		049D1E401C74FB60002B1432 /* camera_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 049D1E3F1C74FB60002B1432 /* camera_back.png */; };
@@ -59,7 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		042E5B471C90C9F600D821F1 /* Questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Questions.plist; path = model/Questions.plist; sourceTree = "<group>"; };
 		043E09A21C7E79EE00443102 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconViewController.h; path = viewcontroller/BeaconViewController.h; sourceTree = "<group>"; };
 		043E09A31C7E79EE00443102 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconViewController.m; path = viewcontroller/BeaconViewController.m; sourceTree = "<group>"; };
 		043E09A51C7E81C300443102 /* delete_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete_icon.png; path = resource/images/delete_icon.png; sourceTree = "<group>"; };
@@ -104,12 +100,8 @@
 		049D1E2B1C743114002B1432 /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionViewController.m; path = viewcontroller/InstructionViewController.m; sourceTree = "<group>"; };
 		049D1E2D1C749735002B1432 /* StartProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartProjectViewController.h; path = viewcontroller/StartProjectViewController.h; sourceTree = "<group>"; };
 		049D1E2E1C749735002B1432 /* StartProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartProjectViewController.m; path = viewcontroller/StartProjectViewController.m; sourceTree = "<group>"; };
-		049D1E301C74BB47002B1432 /* QuestionType1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionType1ViewController.h; path = viewcontroller/QuestionType1ViewController.h; sourceTree = "<group>"; };
-		049D1E311C74BB47002B1432 /* QuestionType1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionType1ViewController.m; path = viewcontroller/QuestionType1ViewController.m; sourceTree = "<group>"; };
-		049D1E331C74BB56002B1432 /* QuestionType2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionType2ViewController.h; path = viewcontroller/QuestionType2ViewController.h; sourceTree = "<group>"; };
-		049D1E341C74BB56002B1432 /* QuestionType2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionType2ViewController.m; path = viewcontroller/QuestionType2ViewController.m; sourceTree = "<group>"; };
-		049D1E361C74BB62002B1432 /* QuestionType3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionType3ViewController.h; path = viewcontroller/QuestionType3ViewController.h; sourceTree = "<group>"; };
-		049D1E371C74BB62002B1432 /* QuestionType3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionType3ViewController.m; path = viewcontroller/QuestionType3ViewController.m; sourceTree = "<group>"; };
+		049D1E301C74BB47002B1432 /* QuestionTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionTypeViewController.h; path = viewcontroller/QuestionTypeViewController.h; sourceTree = "<group>"; };
+		049D1E311C74BB47002B1432 /* QuestionTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionTypeViewController.m; path = viewcontroller/QuestionTypeViewController.m; sourceTree = "<group>"; };
 		049D1E391C74BC29002B1432 /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionTableViewCell.h; path = view/tablecell/QuestionTableViewCell.h; sourceTree = "<group>"; };
 		049D1E3A1C74BC29002B1432 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionTableViewCell.m; path = view/tablecell/QuestionTableViewCell.m; sourceTree = "<group>"; };
 		049D1E3C1C74F9B0002B1432 /* LastStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastStepViewController.h; path = viewcontroller/LastStepViewController.h; sourceTree = "<group>"; };
@@ -237,7 +229,6 @@
 				04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */,
 				0457C58A1C79195400BF34AF /* BeaconItem.h */,
 				0457C58B1C79195400BF34AF /* BeaconItem.m */,
-				042E5B471C90C9F600D821F1 /* Questions.plist */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -255,12 +246,8 @@
 				049D1E2B1C743114002B1432 /* InstructionViewController.m */,
 				049D1E2D1C749735002B1432 /* StartProjectViewController.h */,
 				049D1E2E1C749735002B1432 /* StartProjectViewController.m */,
-				049D1E301C74BB47002B1432 /* QuestionType1ViewController.h */,
-				049D1E311C74BB47002B1432 /* QuestionType1ViewController.m */,
-				049D1E331C74BB56002B1432 /* QuestionType2ViewController.h */,
-				049D1E341C74BB56002B1432 /* QuestionType2ViewController.m */,
-				049D1E361C74BB62002B1432 /* QuestionType3ViewController.h */,
-				049D1E371C74BB62002B1432 /* QuestionType3ViewController.m */,
+				049D1E301C74BB47002B1432 /* QuestionTypeViewController.h */,
+				049D1E311C74BB47002B1432 /* QuestionTypeViewController.m */,
 				049D1E3C1C74F9B0002B1432 /* LastStepViewController.h */,
 				049D1E3D1C74F9B0002B1432 /* LastStepViewController.m */,
 				04F2E7F11C7A22E600677793 /* AddProjectViewController.h */,
@@ -460,7 +447,6 @@
 				0497F2841C72856F009690DE /* map_icon3.png in Resources */,
 				0497F2821C72856F009690DE /* map_icon1.png in Resources */,
 				0497F2681C726B9D009690DE /* Assets.xcassets in Resources */,
-				042E5B481C90C9F600D821F1 /* Questions.plist in Resources */,
 				04D836191C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf in Resources */,
 				0497F2631C726B9D009690DE /* Main.storyboard in Resources */,
 			);
@@ -530,10 +516,9 @@
 				04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */,
 				043E09A41C7E79EE00443102 /* BeaconViewController.m in Sources */,
 				049D1E3E1C74F9B0002B1432 /* LastStepViewController.m in Sources */,
-				049D1E321C74BB47002B1432 /* QuestionType1ViewController.m in Sources */,
+				049D1E321C74BB47002B1432 /* QuestionTypeViewController.m in Sources */,
 				04F2E7FC1C7A246600677793 /* ProjectEntity+CoreDataProperties.m in Sources */,
 				049D1E2C1C743114002B1432 /* InstructionViewController.m in Sources */,
-				049D1E381C74BB62002B1432 /* QuestionType3ViewController.m in Sources */,
 				049D1E231C741EA7002B1432 /* DirectionViewController.m in Sources */,
 				049D1E201C740DE1002B1432 /* ProjectCollectionViewCell.m in Sources */,
 				04F2E7F31C7A22E600677793 /* AddProjectViewController.m in Sources */,
@@ -544,7 +529,6 @@
 				04F2E8031C7A370900677793 /* CoredataManager.m in Sources */,
 				0457C5891C7912C900BF34AF /* BeaconManager.m in Sources */,
 				0497F25A1C726B9D009690DE /* main.m in Sources */,
-				049D1E351C74BB56002B1432 /* QuestionType2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

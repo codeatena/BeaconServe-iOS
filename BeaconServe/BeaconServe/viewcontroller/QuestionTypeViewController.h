@@ -1,5 +1,5 @@
 //
-//  QuestionType2ViewController.h
+//  QuestionType1ViewController.h
 //  BeaconServe
 //
 //  Created by AnCheng on 2/17/16.
@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionType2ViewController : UIViewController
+@interface QuestionTypeViewController : UIViewController
 
 @property (nonatomic ,assign) IBOutlet UIButton *backBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *nextBtn;
-@property (nonatomic ,assign) IBOutlet UILabel *topLbl;
-
-@property(nonatomic ,strong) IBOutletCollection(UIButton) NSArray *buttons;
 
 @property (nonatomic) NSInteger newIndex;
 @property (nonatomic) NSInteger oldIndex;

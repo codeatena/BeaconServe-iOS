@@ -6,10 +6,10 @@
 //  Copyright © 2016 Radu Vila. All rights reserved.
 //
 
-#import "QuestionType1ViewController.h"
+#import "QuestionTypeViewController.h"
 #import "QuestionTableViewCell.h"
 
-@interface QuestionType1ViewController () <UITableViewDataSource , UITableViewDelegate ,CHCSVParserDelegate>
+@interface QuestionTypeViewController () <UITableViewDataSource , UITableViewDelegate ,CHCSVParserDelegate>
 
 @property (nonatomic ,strong) NSMutableArray *answerArr;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation QuestionType1ViewController
+@implementation QuestionTypeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,14 +90,14 @@
     [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
     
     NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
-    [answerArr addObject:[NSString stringWithFormat:@"%d" ,_newIndex + 1]];
+    [answerArr addObject:[NSString stringWithFormat:@"%ld" ,_newIndex + 1]];
     [[NSUserDefaults standardUserDefaults] setObject:answerArr forKey:kAnswerArray];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     if (index < _currentRow.count - 1)
     {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionType1ViewController"];
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionTypeViewController"];
         [self.navigationController pushViewController:vc animated:YES];
         
     }
@@ -176,7 +176,7 @@
             [_answerArr addObject:[dic objectForKey:[NSString stringWithFormat:@"%d" ,i]]];
     }
     
-    _titltLbl.text = [NSString stringWithFormat:@"Question %d" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
     _oldIndex = 0;_newIndex = 0;
     [_tableView reloadData];
 
@@ -206,7 +206,7 @@
 
 - (void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex
 {
-     [_dict setObject:field forKey:[NSString stringWithFormat:@"%d",fieldIndex]];
+     [_dict setObject:field forKey:[NSString stringWithFormat:@"%ld",(long)fieldIndex]];
 }
 
 - (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error

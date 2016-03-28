@@ -114,6 +114,21 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"beacon2found" object:self userInfo:@{@"name" : BEACON2_NAME ,@"uuid" : BEACON2_UUID}];
         
     }
+    
+    /*
+     NSPredicate *predicateIrrelevantBeacons = [NSPredicate predicateWithFormat:@"(self.accuracy != -1) AND ((self.proximity != %d) OR (self.proximity != %d))", CLProximityFar,CLProximityUnknown];
+     NSArray *relevantsBeacons = [beacons filteredArrayUsingPredicate: predicateIrrelevantBeacons];
+     NSPredicate *predicateMin = [NSPredicate predicateWithFormat:@"self.accuracy == %@.@min.accuracy", relevantsBeacons];
+     
+     CLBeacon *closestBeacon = nil;
+     NSArray *closestArray = [[relevantsBeacons filteredArrayUsingPredicate:predicateMin];
+     if ([closestArray count] > 0)
+     closestBeacon = [closestArray objectAtIndex:0];
+     if (closestBeacon)
+     { //Do your thing }
+     else
+     {//No relevant close beacon}
+     */
 }
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
