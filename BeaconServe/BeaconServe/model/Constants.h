@@ -9,6 +9,8 @@
 #ifndef Constants_h
 #define Constants_h
 
+// test beacons
+
 #define BEACON1_UUID        @"E2C56DB5-DFFB-48D2-B060-D0F5A710AF23"
 #define BEACON2_UUID        @"E2C56DB5-DFFB-48D2-B060-D0F5A710AF22"
 

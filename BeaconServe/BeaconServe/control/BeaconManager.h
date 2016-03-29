@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <KCSIBeacon/KCSIBeacon.h>
+#import "KCSIBeacon.h"
 
-@interface BeaconManager : NSObject <CLLocationManagerDelegate>
+@interface BeaconManager : NSObject <KCSBeaconManagerDelegate>
 
+@property (nonatomic ,strong) KCSBeaconManager *beaconManager;
 @property (nonatomic ,strong) NSMutableArray *storedItems;
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 + (id)sharedManager;
 

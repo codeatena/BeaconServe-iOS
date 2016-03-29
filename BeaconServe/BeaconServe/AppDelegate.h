@@ -20,6 +20,8 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (nonatomic) NSTimer* locationUpdateTimer;
+
 
 @end
 

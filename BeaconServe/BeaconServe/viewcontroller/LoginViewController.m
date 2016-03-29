@@ -18,9 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[self addBottomBorder:_usernameTxtField];
-    //[self addBottomBorder:_passwordTxtField];
-    
     _acceptCheckbox.strokeColor = [UIColor whiteColor];
     _acceptCheckbox.checkColor = [UIColor whiteColor];
     _acceptCheckbox.tintColor = [UIColor clearColor];

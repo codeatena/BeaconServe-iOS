@@ -43,7 +43,6 @@
     entity.picture1 = UIImagePNGRepresentation(image1);
     entity.picture2 = UIImagePNGRepresentation(image2);
 
-    //[RSTCoreDataContextSaver saveAndWait:_stack.managedObjectContext];
     [RSTCoreDataContextSaver save:_stack.managedObjectContext];
 
 }

@@ -26,6 +26,13 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"#27B9DE"]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
+    NSTimeInterval time = 10; // every 10s record locatiob beacon number afere enter store
+    self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:time
+                                                             target:self
+                                                           selector:@selector(updateLocation)
+                                                           userInfo:nil
+                                                            repeats:YES];
+    
     return YES;
 }
 
@@ -51,6 +58,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)updateLocation
+{
+    //
 }
 
 #pragma mark - Core Data stack

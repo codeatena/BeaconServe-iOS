@@ -74,19 +74,24 @@
 
 - (IBAction)onBack:(id)sender
 {
+    // question index decrease , remove last answer from answers
     NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
     [[NSUserDefaults standardUserDefaults] setValue:@(index - 1) forKey:kQuestionIndex];
 
-    //[self.navigationController popViewControllerAnimated:YES];
+    NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
+    [answerArr removeLastObject];
+    [[NSUserDefaults standardUserDefaults] setObject:answerArr forKey:kAnswerArray];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
-    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:4];
-    [self.navigationController popToViewController:vc animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onNext:(id)sender
 {
+    // question index increase , add current answer to answers
+
     NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
-    
     [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
     
     NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
