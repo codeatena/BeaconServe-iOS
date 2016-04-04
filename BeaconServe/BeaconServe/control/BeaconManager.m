@@ -42,11 +42,13 @@
         {
             BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:BEACON1_UUID major:4660 minor:22136 type:BEACON_EXIT number:1];
             BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:BEACON2_UUID major:4660 minor:22136 type:BEACON_QUESTION number:2];
-            BeaconItem *item3 = [[BeaconItem alloc] initWithName:BEACON3_NAME uuid:BEACON3_UUID major:4660 minor:22136 type:BEACON_LOCATION number:3];
+            BeaconItem *item3 = [[BeaconItem alloc] initWithName:BEACON3_NAME uuid:BEACON3_UUID major:4660 minor:22136 type:BEACON_LOCATION number:1];
+            BeaconItem *item4 = [[BeaconItem alloc] initWithName:BEACON4_NAME uuid:BEACON4_UUID major:4660 minor:22136 type:BEACON_LOCATION number:2];
 
             [_storedItems addObject:item1];
             [_storedItems addObject:item2];
             [_storedItems addObject:item3];
+            [_storedItems addObject:item4];
 
         }
     }
