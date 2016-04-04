@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <KCSIBeacon/KCSIBeacon.h>
 #import "KCSIBeacon.h"
 
 @interface BeaconManager : NSObject <KCSBeaconManagerDelegate>
@@ -18,5 +17,7 @@
 + (id)sharedManager;
 
 - (void)startItems;
+- (void)stopItems;
+- (void)invalidLastBeacon;
 
 @end

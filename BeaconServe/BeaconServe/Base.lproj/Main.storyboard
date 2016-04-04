@@ -7,10 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Nav View Controller-->
         <scene sceneID="CcW-Qd-dhy">
             <objects>
-                <navigationController navigationBarHidden="YES" id="BSv-Tg-kXN" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="BSv-Tg-kXN" customClass="NavViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="GeH-Hv-NZP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -352,7 +352,7 @@
         <!--PROJECTS-->
         <scene sceneID="sy9-W1-XOG">
             <objects>
-                <viewController id="flg-ck-rWj" customClass="ProjectsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flg-ck-rWj" customClass="ProjectsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5zM-O8-Up1"/>
                         <viewControllerLayoutGuide type="bottom" id="Eeh-H6-YK1"/>
@@ -783,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DY-NI-c5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1402" y="1641"/>
+            <point key="canvasLocation" x="1436" y="1641"/>
         </scene>
         <!--PROJECT NAME1-->
         <scene sceneID="TKs-Sg-AlS">
@@ -993,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhs-Tk-TzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1402" y="916"/>
+            <point key="canvasLocation" x="1436" y="916"/>
         </scene>
         <!--PROJECT NAME1-->
         <scene sceneID="Zis-aU-9M9">

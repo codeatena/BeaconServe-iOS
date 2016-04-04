@@ -8,8 +8,11 @@
 
 #import "QuestionTypeViewController.h"
 #import "QuestionTableViewCell.h"
+#import "StartProjectViewController.h"
+#import "ProjectsViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface QuestionTypeViewController () <UITableViewDataSource , UITableViewDelegate ,CHCSVParserDelegate>
+@interface QuestionTypeViewController () <UITableViewDataSource , UITableViewDelegate ,CHCSVParserDelegate ,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic ,strong) NSMutableArray *answerArr;
 
@@ -68,37 +71,38 @@
 
 - (IBAction)onMenu:(id)sender
 {
-    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
-    [self.navigationController popToViewController:vc animated:YES];
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[StartProjectViewController class]])
+        {
+            [self.navigationController popToViewController:vc animated:YES];
+            
+        }
+    }
 }
 
 - (IBAction)onBack:(id)sender
 {
     // question index decrease , remove last answer from answers
-    NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
-    [[NSUserDefaults standardUserDefaults] setValue:@(index - 1) forKey:kQuestionIndex];
+    NSInteger index = [[[Global sharedManager] getParam:kQuestionIndex] integerValue];
+    [[Global sharedManager] setParam:@(index - 1) forKey:kQuestionIndex];
 
-    NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
+    NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
     [answerArr removeLastObject];
-    [[NSUserDefaults standardUserDefaults] setObject:answerArr forKey:kAnswerArray];
+    [[Global sharedManager] setParam:answerArr forKey:kAnswerArray];
     
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onNext:(id)sender
 {
     // question index increase , add current answer to answers
-
-    NSInteger index = [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue];
-    [[NSUserDefaults standardUserDefaults] setValue:@(index + 1) forKey:kQuestionIndex];
+    NSInteger index = [[[Global sharedManager] getParam:kQuestionIndex] integerValue];
+    [[Global sharedManager] setParam:@(index + 1) forKey:kQuestionIndex];
     
-    NSMutableArray *answerArr = [[[NSUserDefaults standardUserDefaults] arrayForKey:kAnswerArray] mutableCopy];
-    [answerArr addObject:[NSString stringWithFormat:@"%ld" ,_newIndex + 1]];
-    [[NSUserDefaults standardUserDefaults] setObject:answerArr forKey:kAnswerArray];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
+    [answerArr addObject:[NSString stringWithFormat:@"%d" ,_newIndex + 1]];
+    [[Global sharedManager] setParam:answerArr forKey:kAnswerArray];
     
     if (index < _currentRow.count - 1)
     {
@@ -108,9 +112,80 @@
     }
     else
     {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LastStepViewController"];
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        if ([[[Global sharedManager] getParam:kIsFromQuestion] boolValue])
+        {
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LastStepViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            // upload to server and back to projects list
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"response.csv"];
+            
+            CHCSVWriter *csvWriter=[[CHCSVWriter alloc] initForWritingToCSVFile:filePath];
+            NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
+            [answerArr insertObject:@"answer" atIndex:0];
+            [csvWriter writeLineOfFields:answerArr];
+            
+            NSMutableArray *locationArr = [[[Global sharedManager] getParam:kClosestBeaconArray] mutableCopy];
+            [locationArr insertObject:@"location" atIndex:0];
+            [csvWriter writeLineOfFields:locationArr];
+            
+            [csvWriter closeStream];
+            
+            MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+            [[controller navigationItem].rightBarButtonItem setTintColor:[UIColor blueColor]];
+            if ([MFMailComposeViewController canSendMail])
+            {
+                [controller setSubject:@"Response"];
+                
+                NSData *noteData = [NSData dataWithContentsOfFile:filePath];
+                NSArray * array = [[NSArray alloc] initWithObjects:@"matthew@virtusventures.com", nil];
+                //NSArray * array = [[NSArray alloc] initWithObjects:@"acu11988@gmail.com", nil];
+                [controller setToRecipients: array];
+                [controller addAttachmentData:noteData mimeType:@"text/csv" fileName:@"response.csv"];
+                controller.mailComposeDelegate = self;
+                [self presentViewController:controller animated:YES completion:nil];
+            }
+            
+        }
+        
     }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+     //back to project list view controller
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[ProjectsViewController class]])
+        {
+            [self.navigationController popToViewController:vc animated:YES];
+    
+        }
+    }
+
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Cancelled");
+            break;
+        case MFMailComposeResultFailed:
+            
+            break;
+        case MFMailComposeResultSent:
+            
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -170,7 +245,7 @@
 - (void)displayQuestion
 {
 
-    NSDictionary *dic = [_currentRow objectAtIndex:[[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    NSDictionary *dic = [_currentRow objectAtIndex:[[[Global sharedManager] getParam:kQuestionIndex] integerValue]];
     _descriptionLbl.text = dic[@"0"];
     _answerArr = [[NSMutableArray alloc] init];
 
@@ -181,7 +256,7 @@
             [_answerArr addObject:[dic objectForKey:[NSString stringWithFormat:@"%d" ,i]]];
     }
     
-    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , [[[NSUserDefaults standardUserDefaults] valueForKey:kQuestionIndex] integerValue]];
+    _titltLbl.text = [NSString stringWithFormat:@"Question %ld" , (long)[[[Global sharedManager] getParam:kQuestionIndex] integerValue]];
     _oldIndex = 0;_newIndex = 0;
     [_tableView reloadData];
 

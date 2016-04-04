@@ -8,6 +8,7 @@
 
 #import "LastStepViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "StartProjectViewController.h"
 
 @interface LastStepViewController () <MFMailComposeViewControllerDelegate ,UIImagePickerControllerDelegate ,UINavigationControllerDelegate>
 
@@ -21,7 +22,7 @@
     
     self.title = [[CoredataManager sharedManager] currentProject].projectname;
 
-    NSString *beacon = [[NSUserDefaults standardUserDefaults] valueForKey:@"beacon"];
+    NSString *beacon = [[Global sharedManager] getParam:@"beacon"];
     if ([beacon isEqualToString:@"beacon1"])
     {
         _projectImageView.image =  [UIImage imageWithData:[[CoredataManager sharedManager] currentProject].picture1];
@@ -53,8 +54,15 @@
 
 - (IBAction)onMenu:(id)sender
 {
-    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
-    [self.navigationController popToViewController:vc animated:YES];
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[StartProjectViewController class]])
+        {
+            [self.navigationController popToViewController:vc animated:YES];
+
+        }
+    }
+    
 }
 
 - (void)setFont
@@ -107,15 +115,10 @@
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"response.csv"];
         
         CHCSVWriter *csvWriter=[[CHCSVWriter alloc] initForWritingToCSVFile:filePath];
-        NSMutableArray *answerArr = [[NSUserDefaults standardUserDefaults] objectForKey:kAnswerArray];
-        NSLog(@"response : %@" , [answerArr componentsJoinedByString:@" ,"]);
+        NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
+        [answerArr insertObject:@"answer" atIndex:0];
         
-        for (NSString *answer in answerArr)
-        {
-            [csvWriter writeField:answer];
-            [csvWriter finishLine];
-        }
-        
+        [csvWriter writeLineOfFields:answerArr];
         [csvWriter closeStream];
         
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
@@ -126,6 +129,7 @@
             
             NSData *noteData = [NSData dataWithContentsOfFile:filePath];
             NSArray * array = [[NSArray alloc] initWithObjects:@"matthew@virtusventures.com", nil];
+            //NSArray * array = [[NSArray alloc] initWithObjects:@"acu11988@gmail.com", nil];
             [controller setToRecipients: array];
             [controller addAttachmentData:noteData mimeType:@"text/csv" fileName:@"response.csv"];
             [controller addAttachmentData:UIImagePNGRepresentation(chosenImage) mimeType:@"image/png" fileName:@"image.png"];

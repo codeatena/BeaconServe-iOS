@@ -8,6 +8,7 @@
 
 #import "BeaconManager.h"
 #import "BeaconItem.h"
+#import "AppDelegate.h"
 
 @implementation BeaconManager 
 
@@ -39,8 +40,8 @@
         }
         else
         {
-            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:BEACON1_UUID major:4660 minor:22136 type:BEACON_QUESTION];
-            BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:BEACON2_UUID major:4660 minor:22136 type:BEACON_QUESTION];
+            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:BEACON1_UUID major:4660 minor:22136 type:BEACON_QUESTION number:1];
+            BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:BEACON2_UUID major:4660 minor:22136 type:BEACON_QUESTION number:2];
             [_storedItems addObject:item1];
             [_storedItems addObject:item2];
         }
@@ -56,20 +57,18 @@
     }
 }
 
-/*
- NSPredicate *predicateIrrelevantBeacons = [NSPredicate predicateWithFormat:@"(self.accuracy != -1) AND ((self.proximity != %d) OR (self.proximity != %d))", CLProximityFar,CLProximityUnknown];
- NSArray *relevantsBeacons = [beacons filteredArrayUsingPredicate: predicateIrrelevantBeacons];
- NSPredicate *predicateMin = [NSPredicate predicateWithFormat:@"self.accuracy == %@.@min.accuracy", relevantsBeacons];
- 
- CLBeacon *closestBeacon = nil;
- NSArray *closestArray = [[relevantsBeacons filteredArrayUsingPredicate:predicateMin];
- if ([closestArray count] > 0)
- closestBeacon = [closestArray objectAtIndex:0];
- if (closestBeacon)
- { //Do your thing }
- else
- {//No relevant close beacon}
- */
+- (void)stopItems
+{
+    for (BeaconItem *itemData in _storedItems) {
+        
+        [self.beaconManager stopMonitoringForRegion:itemData.name];
+    }
+}
+
+- (void)invalidLastBeacon
+{
+    [self.beaconManager invalidLastBeacon];
+}
 
 #pragma mark - KCSBeaconManagerDelegate
 - (void) newNearestBeacon:(CLBeacon*)beacon
@@ -82,16 +81,50 @@
             
             if (itemData.beaconType == BEACON_QUESTION)
             {
-                // pop up question view
+                [[Global sharedManager] setDetectedQuestion:YES];
+                // pop up question view when rssi > -72 DB
+                if (beacon.rssi >= - 72)
+                {
+                    // pop up question view
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"questionbeaconfound" object:self userInfo:nil];
+
+                }
+                
             }
             else if (itemData.beaconType == BEACON_LOCATION)
             {
+                [[Global sharedManager] setDetectedLocation:YES];
                 // record beacon number to CSV file
+                [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];
+                
             }
             else  // if exit beacon
             {
+                
+                AppDelegate *delegate = [UIApplication sharedApplication].delegate;
                 // need to detect if enter or exit
                 // when exit and 2 types beacon is detected , trigger exit notification , complete question
+                
+                if ([[Global sharedManager] enteredStore])
+                {
+                    [delegate stopTimer];
+                    [self stopItems];
+
+                    [[Global sharedManager] setEnteredStore:NO];
+                    
+                    if ([[Global sharedManager] detectedLocation] && [[Global sharedManager] detectedQuestion])
+                    {
+                        // exit from store
+                        // show LastStepViewController to complete question
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"exitbeaconfound" object:self userInfo:nil];
+
+                    }
+                }
+                else
+                {
+                    [delegate startTimer];
+                    [[Global sharedManager] setEnteredStore:YES]; // entered store
+                }
             }
             
         }

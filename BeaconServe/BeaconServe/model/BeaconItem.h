@@ -24,11 +24,12 @@ typedef enum
 @property (assign, nonatomic, readonly) CLBeaconMinorValue minorValue;
 
 @property (nonatomic) BEACON_TYPE beaconType;
+@property (nonatomic) NSInteger deviceNumber;
 
 - (instancetype)initWithName:(NSString *)name
                         uuid:(NSString *)uuid
                        major:(CLBeaconMajorValue)major
-                       minor:(CLBeaconMinorValue)minor type:(BEACON_TYPE)type;
+                       minor:(CLBeaconMinorValue)minor type:(BEACON_TYPE)type number:(NSInteger)number;
 
 - (BOOL)isEqualToCLBeacon:(CLBeacon *)beacon;
 

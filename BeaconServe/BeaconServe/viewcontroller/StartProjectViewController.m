@@ -7,6 +7,7 @@
 //
 
 #import "StartProjectViewController.h"
+#import "ProjectsViewController.h"
 
 @interface StartProjectViewController ()
 
@@ -21,7 +22,7 @@
     self.title = [[CoredataManager sharedManager] currentProject].projectname;
     _projectImageView.layer.masksToBounds = YES;
     
-    NSString *beacon = [[NSUserDefaults standardUserDefaults] valueForKey:@"beacon"];
+    NSString *beacon = [[Global sharedManager] getParam:@"beacon"];
     if ([beacon isEqualToString:@"beacon1"])
     {
         _projectImageView.image =  [UIImage imageWithData:[[CoredataManager sharedManager] currentProject].picture1];
@@ -58,30 +59,37 @@
 
 - (IBAction)onMenu:(id)sender
 {
-//    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:1];
-//    [self.navigationController popToViewController:vc animated:YES];
-
-    [self.navigationController popViewControllerAnimated:YES];
+    [[BeaconManager sharedManager] stopItems];
+    for (UIViewController *vc in self.navigationController.viewControllers)
+    {
+        if ([vc isKindOfClass:[ProjectsViewController class]])
+        {
+            [self.navigationController popToViewController:vc animated:YES];
+            
+        }
+    }
 }
 
 - (IBAction)onSart:(id)sender
 {
-    // initialize question index and answer array
-    [[NSUserDefaults standardUserDefaults] setValue:@(1) forKey:kQuestionIndex];
-    
-    NSMutableArray *anwserArr = [NSMutableArray new];
-    [anwserArr addObject:@"answer"];
-    [[NSUserDefaults standardUserDefaults] setObject:anwserArr forKey:kAnswerArray];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if ([[Global sharedManager] enteredStore]) return; // if already entered store , ignore that function
 
-    [self performSegueWithIdentifier:@"questionSegue" sender:nil];
+    
+    [[Global sharedManager] initParams];
+    [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
+    [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
+    
+    // start monitoring
+    
+    [[BeaconManager sharedManager] stopItems];
+    [[BeaconManager sharedManager] invalidLastBeacon];
+    [[BeaconManager sharedManager] startItems];
 }
 
 - (void)setFont
 {
     [_startBtn.titleLabel setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
     [_titltLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Bold" size:18]];
-    
     [self.descriptionLbl setFont:[UIFont fontWithName:@"RobotoCondensed-Regular" size:15]];
 }
 

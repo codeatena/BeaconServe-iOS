@@ -61,6 +61,9 @@
 - (IBAction)onContinue:(id)sender
 {
     //[self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
+    
+    [[Global sharedManager] setEnteredStore:NO];
+    
     [self performSegueWithIdentifier:@"startSegue1" sender:nil];
 }
 

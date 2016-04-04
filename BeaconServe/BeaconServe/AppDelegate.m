@@ -26,13 +26,6 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"#27B9DE"]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
-    NSTimeInterval time = 10; // every 10s record locatiob beacon number afere enter store
-    self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:time
-                                                             target:self
-                                                           selector:@selector(updateLocation)
-                                                           userInfo:nil
-                                                            repeats:YES];
-    
     return YES;
 }
 
@@ -60,9 +53,42 @@
     [self saveContext];
 }
 
+- (void)startTimer
+{
+    if (self.locationUpdateTimer  != nil)
+    {
+        [self.locationUpdateTimer invalidate];
+        self.locationUpdateTimer = nil;
+    }
+    NSTimeInterval time = 10; // every 10s record location beacon number afere enter store
+    self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:time
+                                                                target:self
+                                                              selector:@selector(updateLocation)
+                                                              userInfo:nil
+                                                               repeats:YES];
+}
+
+- (void)stopTimer
+{
+    if (self.locationUpdateTimer  != nil)
+    {
+        [self.locationUpdateTimer invalidate];
+        self.locationUpdateTimer = nil;
+    }
+}
+
 - (void)updateLocation
 {
-    //
+    NSLog(@"timer refresh");
+    
+    // write closest beacon number to CSV file
+    
+    if ([[Global sharedManager] getParam:kClosestQuestionBeaconNumber] != nil)
+    {
+        NSMutableArray *locationArr = [[[Global sharedManager] getParam:kClosestBeaconArray] mutableCopy];
+        [locationArr addObject:[[Global sharedManager] getParam:kClosestQuestionBeaconNumber]];
+        [[Global sharedManager] setParam:locationArr forKey:kClosestBeaconArray];
+    }
 }
 
 #pragma mark - Core Data stack
@@ -113,7 +139,6 @@
     
     return _persistentStoreCoordinator;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)

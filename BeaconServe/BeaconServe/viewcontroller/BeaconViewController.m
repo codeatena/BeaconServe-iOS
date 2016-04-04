@@ -102,8 +102,7 @@
 {
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     NSDictionary *dic = [_beaconArr objectAtIndex:indexPath.row];
-
-    [[NSUserDefaults standardUserDefaults] setValue:dic[@"beacon"] forKey:@"beacon"];
+    [[Global sharedManager] setParam:dic[@"beacon"] forKey:@"beacon"];
 
     [self performSegueWithIdentifier:@"startSegue" sender:nil];
 }

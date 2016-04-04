@@ -20,4 +20,9 @@
 #define kQuestionIndex      @"questionindex"
 #define kAnswerArray        @"answerArray"
 
+#define kClosestQuestionBeaconNumber    @"closedbeaconnumber"
+#define kClosestBeaconArray             @"closedbeaconarray"
+
+#define kIsFromQuestion      @"isfromquestion"
+
 #endif /* Constants_h */

@@ -22,6 +22,8 @@
 
 @property (nonatomic) NSTimer* locationUpdateTimer;
 
+- (void)startTimer;
+- (void)stopTimer;
 
 @end
 

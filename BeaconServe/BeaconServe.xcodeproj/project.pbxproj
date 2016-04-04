@@ -45,6 +45,12 @@
 		04D836181C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D836151C7B6F9B00773EA1 /* RobotoCondensed-Light.ttf */; };
 		04D836191C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D836161C7B6F9B00773EA1 /* RobotoCondensed-Regular.ttf */; };
 		04D8361D1C7B755B00773EA1 /* TopAlignedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */; };
+		04E2A9B11CAAE1F300B85656 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A9B01CAAE1F300B85656 /* Global.m */; };
+		04E2A9B81CAAE76400B85656 /* KCSBeaconInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A9B41CAAE76400B85656 /* KCSBeaconInfo.m */; };
+		04E2A9B91CAAE76400B85656 /* KCSBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A9B61CAAE76400B85656 /* KCSBeaconManager.m */; };
+		04E2A9BB1CAAE89900B85656 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E2A9BA1CAAE89900B85656 /* UIKit.framework */; };
+		04E2A9BD1CAAE8A100B85656 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E2A9BC1CAAE8A100B85656 /* Foundation.framework */; };
+		04E2A9C01CAB5F6400B85656 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A9BF1CAB5F6400B85656 /* NavViewController.m */; };
 		04F0E60F1C78DD9A00A3D29B /* ProjectAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */; };
 		04F2E7F31C7A22E600677793 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F21C7A22E600677793 /* AddProjectViewController.m */; };
 		04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F2E7F51C7A240A00677793 /* BeaconServe.xcdatamodeld */; };
@@ -113,6 +119,17 @@
 		04D8361B1C7B755B00773EA1 /* TopAlignedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAlignedLabel.h; sourceTree = "<group>"; };
 		04D8361C1C7B755B00773EA1 /* TopAlignedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAlignedLabel.m; sourceTree = "<group>"; };
 		04D8361F1C7BB9FD00773EA1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = model/Constants.h; sourceTree = "<group>"; };
+		04E2A9AF1CAAE1F300B85656 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Global.h; path = model/Global.h; sourceTree = "<group>"; };
+		04E2A9B01CAAE1F300B85656 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Global.m; path = model/Global.m; sourceTree = "<group>"; };
+		04E2A9B31CAAE76400B85656 /* KCSBeaconInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCSBeaconInfo.h; sourceTree = "<group>"; };
+		04E2A9B41CAAE76400B85656 /* KCSBeaconInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCSBeaconInfo.m; sourceTree = "<group>"; };
+		04E2A9B51CAAE76400B85656 /* KCSBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCSBeaconManager.h; sourceTree = "<group>"; };
+		04E2A9B61CAAE76400B85656 /* KCSBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCSBeaconManager.m; sourceTree = "<group>"; };
+		04E2A9B71CAAE76400B85656 /* KCSIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCSIBeacon.h; sourceTree = "<group>"; };
+		04E2A9BA1CAAE89900B85656 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04E2A9BC1CAAE8A100B85656 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04E2A9BE1CAB5F6400B85656 /* NavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavViewController.h; path = viewcontroller/NavViewController.h; sourceTree = "<group>"; };
+		04E2A9BF1CAB5F6400B85656 /* NavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavViewController.m; path = viewcontroller/NavViewController.m; sourceTree = "<group>"; };
 		04F0E60D1C78DD9A00A3D29B /* ProjectAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectAnnotation.h; path = model/ProjectAnnotation.h; sourceTree = "<group>"; };
 		04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectAnnotation.m; path = model/ProjectAnnotation.m; sourceTree = "<group>"; };
 		04F2E7F11C7A22E600677793 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProjectViewController.h; path = viewcontroller/AddProjectViewController.h; sourceTree = "<group>"; };
@@ -135,6 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E2A9BD1CAAE8A100B85656 /* Foundation.framework in Frameworks */,
+				04E2A9BB1CAAE89900B85656 /* UIKit.framework in Frameworks */,
 				04818A051C97F89D001F73E8 /* MessageUI.framework in Frameworks */,
 				049D1E291C742672002B1432 /* CoreBluetooth.framework in Frameworks */,
 				049D1E271C74266C002B1432 /* CoreLocation.framework in Frameworks */,
@@ -149,6 +168,7 @@
 		0457C5861C7912AA00BF34AF /* control */ = {
 			isa = PBXGroup;
 			children = (
+				04E2A9B21CAAE76400B85656 /* KCSIBeacon */,
 				0457C5871C7912C900BF34AF /* BeaconManager.h */,
 				0457C5881C7912C900BF34AF /* BeaconManager.m */,
 				04F2E8011C7A370900677793 /* CoredataManager.h */,
@@ -229,6 +249,8 @@
 				04F0E60E1C78DD9A00A3D29B /* ProjectAnnotation.m */,
 				0457C58A1C79195400BF34AF /* BeaconItem.h */,
 				0457C58B1C79195400BF34AF /* BeaconItem.m */,
+				04E2A9AF1CAAE1F300B85656 /* Global.h */,
+				04E2A9B01CAAE1F300B85656 /* Global.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -254,6 +276,8 @@
 				04F2E7F21C7A22E600677793 /* AddProjectViewController.m */,
 				043E09A21C7E79EE00443102 /* BeaconViewController.h */,
 				043E09A31C7E79EE00443102 /* BeaconViewController.m */,
+				04E2A9BE1CAB5F6400B85656 /* NavViewController.h */,
+				04E2A9BF1CAB5F6400B85656 /* NavViewController.m */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -337,6 +361,19 @@
 			path = unitity/TopAlignedLabel;
 			sourceTree = "<group>";
 		};
+		04E2A9B21CAAE76400B85656 /* KCSIBeacon */ = {
+			isa = PBXGroup;
+			children = (
+				04E2A9B31CAAE76400B85656 /* KCSBeaconInfo.h */,
+				04E2A9B41CAAE76400B85656 /* KCSBeaconInfo.m */,
+				04E2A9B51CAAE76400B85656 /* KCSBeaconManager.h */,
+				04E2A9B61CAAE76400B85656 /* KCSBeaconManager.m */,
+				04E2A9B71CAAE76400B85656 /* KCSIBeacon.h */,
+			);
+			name = KCSIBeacon;
+			path = control/KCSIBeacon;
+			sourceTree = "<group>";
+		};
 		04F2E7F41C7A23F100677793 /* coredata */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +398,8 @@
 		F42AC60C2FB5090BEA361DD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04E2A9BC1CAAE8A100B85656 /* Foundation.framework */,
+				04E2A9BA1CAAE89900B85656 /* UIKit.framework */,
 				04818A041C97F89D001F73E8 /* MessageUI.framework */,
 				049D1E281C742672002B1432 /* CoreBluetooth.framework */,
 				049D1E261C74266C002B1432 /* CoreLocation.framework */,
@@ -404,6 +443,11 @@
 				TargetAttributes = {
 					0497F2541C726B9D009690DE = {
 						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -511,7 +555,10 @@
 				04F0E60F1C78DD9A00A3D29B /* ProjectAnnotation.m in Sources */,
 				04F2E7FD1C7A246600677793 /* ProjectEntity.m in Sources */,
 				049D1E191C74026D002B1432 /* UIColor+HexString.m in Sources */,
+				04E2A9C01CAB5F6400B85656 /* NavViewController.m in Sources */,
+				04E2A9B11CAAE1F300B85656 /* Global.m in Sources */,
 				049D1E151C73FAA1002B1432 /* ProjectsViewController.m in Sources */,
+				04E2A9B91CAAE76400B85656 /* KCSBeaconManager.m in Sources */,
 				0497F2881C7287F2009690DE /* LoginViewController.m in Sources */,
 				04F2E7F71C7A240A00677793 /* BeaconServe.xcdatamodeld in Sources */,
 				043E09A41C7E79EE00443102 /* BeaconViewController.m in Sources */,
@@ -529,6 +576,7 @@
 				04F2E8031C7A370900677793 /* CoredataManager.m in Sources */,
 				0457C5891C7912C900BF34AF /* BeaconManager.m in Sources */,
 				0497F25A1C726B9D009690DE /* main.m in Sources */,
+				04E2A9B81CAAE76400B85656 /* KCSBeaconInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
