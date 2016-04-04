@@ -159,16 +159,6 @@
 
 #pragma mark - MFMailComposeViewControllerDelegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
-    
-     //back to project list view controller
-    for (UIViewController *vc in self.navigationController.viewControllers)
-    {
-        if ([vc isKindOfClass:[ProjectsViewController class]])
-        {
-            [self.navigationController popToViewController:vc animated:YES];
-    
-        }
-    }
 
     switch (result) {
         case MFMailComposeResultCancelled:
@@ -184,8 +174,19 @@
             break;
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:^(void){
+        
+        //back to project list view controller
+        for (UIViewController *vc in self.navigationController.viewControllers)
+        {
+            if ([vc isKindOfClass:[ProjectsViewController class]])
+            {
+                [self.navigationController popToViewController:vc animated:YES];
+                
+            }
+        }
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
