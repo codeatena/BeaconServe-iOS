@@ -124,7 +124,7 @@
             
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"response.csv"];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"exit.csv"];
             
             CHCSVWriter *csvWriter=[[CHCSVWriter alloc] initForWritingToCSVFile:filePath];
             NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
