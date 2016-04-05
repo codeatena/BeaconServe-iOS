@@ -147,7 +147,7 @@
                 NSArray * array = [[NSArray alloc] initWithObjects:@"matthew@virtusventures.com", nil];
                 //NSArray * array = [[NSArray alloc] initWithObjects:@"acu11988@gmail.com", nil];
                 [controller setToRecipients: array];
-                [controller addAttachmentData:noteData mimeType:@"text/csv" fileName:@"response.csv"];
+                [controller addAttachmentData:noteData mimeType:@"text/csv" fileName:@"exit.csv"];
                 controller.mailComposeDelegate = self;
                 [self presentViewController:controller animated:YES completion:nil];
             }
