@@ -87,21 +87,22 @@
             
             if (itemData.beaconType == BEACON_QUESTION)
             {
-                [[Global sharedManager] setDetectedQuestion:YES];
-                // pop up question view when rssi > -72 DB
-                if (beacon.rssi >= - 72)
+                if ([[Global sharedManager] enteredStore])
                 {
+                    [[Global sharedManager] setDetectedQuestion:YES];
                     // pop up question view
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"questionbeaconfound" object:self userInfo:nil];
-
                 }
                 
             }
             else if (itemData.beaconType == BEACON_LOCATION)
             {
-                [[Global sharedManager] setDetectedLocation:YES];
-                // record beacon number to CSV file
-                [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];
+                if ([[Global sharedManager] enteredStore])
+                {
+                    [[Global sharedManager] setDetectedLocation:YES];
+                    // record beacon number to CSV file
+                    [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];
+                }
                 
             }
             else  // if exit beacon
