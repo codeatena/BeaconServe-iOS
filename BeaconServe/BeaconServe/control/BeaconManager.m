@@ -57,6 +57,8 @@
 
 - (void)startItems
 {
+    _lastUUID = @"";
+    
     for (BeaconItem *itemData in _storedItems) {
         
         [self.beaconManager startMonitoringForRegion:itemData.uuid identifier:itemData.name major:@(itemData.majorValue) minor:@(itemData.minorValue) error:nil];
@@ -87,8 +89,10 @@
             
             if (itemData.beaconType == BEACON_QUESTION)
             {
-                //if ([[Global sharedManager] enteredStore])
+                if (![_lastUUID isEqualToString:itemData.uuid])
                 {
+                    _lastUUID = itemData.uuid;
+                    
                     [[Global sharedManager] setDetectedQuestion:YES];
                     // pop up question view
                     
@@ -102,14 +106,9 @@
             }
             else if (itemData.beaconType == BEACON_LOCATION)
             {
-                //if ([[Global sharedManager] enteredStore])
-                {
-
-                    [[Global sharedManager] setDetectedLocation:YES];
-                    // record beacon number to CSV file
-                    [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];
-                }
-                
+                [[Global sharedManager] setDetectedLocation:YES];
+                // record beacon number to CSV file
+                [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];
             }
             else  // if exit beacon
             {

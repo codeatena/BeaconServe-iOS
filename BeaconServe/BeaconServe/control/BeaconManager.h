@@ -14,6 +14,8 @@
 @property (nonatomic ,strong) KCSBeaconManager *beaconManager;
 @property (nonatomic ,strong) NSMutableArray *storedItems;
 
+@property (nonatomic ,strong) NSString *lastUUID;
+
 + (id)sharedManager;
 
 - (void)startItems;

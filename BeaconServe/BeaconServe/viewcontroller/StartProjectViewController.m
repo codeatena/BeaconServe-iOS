@@ -10,6 +10,9 @@
 #import "ProjectsViewController.h"
 
 @interface StartProjectViewController ()
+{
+    BOOL startSuvey;
+}
 
 @end
 
@@ -40,6 +43,8 @@
     btnLayer.borderColor = [UIColor clearColor].CGColor;
 
     [self setFont];
+    
+    startSuvey = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,9 +85,13 @@
     
     // start monitoring
     
-    [[BeaconManager sharedManager] stopItems];
-    [[BeaconManager sharedManager] startItems];
-    
+    if (!startSuvey)
+    {
+        [[BeaconManager sharedManager] stopItems];
+        [[BeaconManager sharedManager] startItems];
+        
+        startSuvey = YES;
+    }
 
 }
 
