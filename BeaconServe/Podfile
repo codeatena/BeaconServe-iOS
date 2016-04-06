@@ -12,5 +12,6 @@ pod 'PureLayout'
 pod 'M13Checkbox'
 pod 'RSTCoreDataKit'
 pod 'CHCSVParser'
+pod 'JLToast', '~> 1.3'
 
 end

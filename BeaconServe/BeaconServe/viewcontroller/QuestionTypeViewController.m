@@ -101,7 +101,7 @@
     [[Global sharedManager] setParam:@(index + 1) forKey:kQuestionIndex];
     
     NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
-    [answerArr addObject:[NSString stringWithFormat:@"%d" ,_newIndex + 1]];
+    [answerArr addObject:[NSString stringWithFormat:@"%ld" ,_newIndex + 1]];
     [[Global sharedManager] setParam:answerArr forKey:kAnswerArray];
     
     if (index < _currentRow.count - 1)
@@ -132,8 +132,11 @@
             [csvWriter writeLineOfFields:answerArr];
             
             NSMutableArray *locationArr = [[[Global sharedManager] getParam:kClosestBeaconArray] mutableCopy];
-            [locationArr insertObject:@"location" atIndex:0];
-            [csvWriter writeLineOfFields:locationArr];
+            if (locationArr.count > 0)
+            {
+                [locationArr insertObject:@"location" atIndex:0];
+                [csvWriter writeLineOfFields:locationArr];
+            }
             
             [csvWriter closeStream];
             

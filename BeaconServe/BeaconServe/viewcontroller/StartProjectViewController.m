@@ -72,17 +72,15 @@
 
 - (IBAction)onSart:(id)sender
 {
-    if ([[Global sharedManager] enteredStore]) return; // if already entered store , ignore that function
-
+    //if ([[Global sharedManager] enteredStore]) return; // if already entered store , ignore that function
     
-    [[Global sharedManager] initParams];
-    [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
-    [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
+//    [[Global sharedManager] initParams];
+//    [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
+//    [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
     
     // start monitoring
     
     [[BeaconManager sharedManager] stopItems];
-    [[BeaconManager sharedManager] invalidLastBeacon];
     [[BeaconManager sharedManager] startItems];
 }
 

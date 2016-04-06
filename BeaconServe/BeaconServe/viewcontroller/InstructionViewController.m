@@ -63,6 +63,9 @@
     //[self performSegueWithIdentifier:@"beaconlistSegue" sender:nil];
     
     [[Global sharedManager] setEnteredStore:NO];
+    [[Global sharedManager] initParams];
+    [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
+    [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
     
     [self performSegueWithIdentifier:@"startSegue1" sender:nil];
 }

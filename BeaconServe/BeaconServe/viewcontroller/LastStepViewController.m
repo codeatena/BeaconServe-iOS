@@ -117,8 +117,15 @@
         CHCSVWriter *csvWriter=[[CHCSVWriter alloc] initForWritingToCSVFile:filePath];
         NSMutableArray *answerArr = [[[Global sharedManager] getParam:kAnswerArray] mutableCopy];
         [answerArr insertObject:@"answer" atIndex:0];
-        
         [csvWriter writeLineOfFields:answerArr];
+
+        NSMutableArray *locationArr = [[[Global sharedManager] getParam:kClosestBeaconArray] mutableCopy];
+        if (locationArr.count > 0)
+        {
+            [locationArr insertObject:@"location" atIndex:0];
+            [csvWriter writeLineOfFields:locationArr];
+        }
+
         [csvWriter closeStream];
         
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];

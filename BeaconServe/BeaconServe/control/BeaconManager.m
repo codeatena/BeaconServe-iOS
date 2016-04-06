@@ -40,11 +40,11 @@
         }
         else
         {
-            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:BEACON1_UUID major:4660 minor:22136 type:BEACON_EXIT number:1];
+            BeaconItem *item1 = [[BeaconItem alloc] initWithName:BEACON1_NAME uuid:BEACON1_UUID major:4660 minor:22136 type:BEACON_QUESTION number:1];
             BeaconItem *item2 = [[BeaconItem alloc] initWithName:BEACON2_NAME uuid:BEACON2_UUID major:4660 minor:22136 type:BEACON_QUESTION number:2];
             BeaconItem *item3 = [[BeaconItem alloc] initWithName:BEACON3_NAME uuid:BEACON3_UUID major:4660 minor:22136 type:BEACON_LOCATION number:1];
             BeaconItem *item4 = [[BeaconItem alloc] initWithName:BEACON4_NAME uuid:BEACON4_UUID major:4660 minor:22136 type:BEACON_LOCATION number:2];
-
+            
             [_storedItems addObject:item1];
             [_storedItems addObject:item2];
             [_storedItems addObject:item3];
@@ -87,17 +87,22 @@
             
             if (itemData.beaconType == BEACON_QUESTION)
             {
-                if ([[Global sharedManager] enteredStore])
+                //if ([[Global sharedManager] enteredStore])
                 {
                     [[Global sharedManager] setDetectedQuestion:YES];
                     // pop up question view
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"questionbeaconfound" object:self userInfo:nil];
+                    
+                    if ([itemData.uuid isEqualToString:BEACON1_UUID])
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"questionbeacon1found" object:self userInfo:nil];
+                    else
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"questionbeacon2found" object:self userInfo:nil];
+
                 }
                 
             }
             else if (itemData.beaconType == BEACON_LOCATION)
             {
-                if ([[Global sharedManager] enteredStore])
+                //if ([[Global sharedManager] enteredStore])
                 {
                     [[Global sharedManager] setDetectedLocation:YES];
                     // record beacon number to CSV file

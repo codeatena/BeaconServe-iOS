@@ -23,7 +23,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"exitbeaconfound" object:[BeaconManager sharedManager]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"questionbeaconfound" object:[BeaconManager sharedManager]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"questionbeacon1found" object:[BeaconManager sharedManager]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"questionbeacon2found" object:[BeaconManager sharedManager]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +36,8 @@
 - (void)dealloc{
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"exitbeaconfound" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"questionbeaconfound" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"questionbeacon1found" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"questionbeacon2found" object:nil];
 
 }
 
@@ -62,7 +65,7 @@
         [self pushViewController:vc animated:YES];
         
     }
-    else if ([notification.name isEqualToString:@"questionbeaconfound"])
+    else if ([notification.name isEqualToString:@"questionbeacon1found"])
     {
         // if question or last step view controller , ask if wants to stop and to start new question
         if ([self.topViewController isKindOfClass:[QuestionTypeViewController class]] || [self.topViewController isKindOfClass:[LastStepViewController class]])
@@ -72,29 +75,24 @@
             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
                 
-                [self dismissViewControllerAnimated:YES completion:^(void){
-                    
-                    [CATransaction begin];
-                    [CATransaction setCompletionBlock:^{
-                        [self startQuestion];
-                    }];
-                    
-                    for (UIViewController *vc in self.navigationController.viewControllers)
-                    {
-                        if ([vc isKindOfClass:[StartProjectViewController class]])
-                        {
-                            [self.navigationController popToViewController:vc animated:YES];
-                        }
-                    }
-                    
-                    [CATransaction commit];
-                    
+                [CATransaction begin];
+                [CATransaction setCompletionBlock:^{
+                    [self startQuestion:YES];
                 }];
+                
+                for (UIViewController *vc in self.navigationController.viewControllers)
+                {
+                    if ([vc isKindOfClass:[StartProjectViewController class]])
+                    {
+                        [self.navigationController popToViewController:vc animated:YES];
+                    }
+                }
+                
+                [CATransaction commit];
                 
             }]];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [self dismissViewControllerAnimated:YES completion:nil];
             }]];
             
             [self presentViewController:alertController animated:YES completion:nil];
@@ -102,14 +100,57 @@
         }
         else
         {
-            [self startQuestion];
+            [self startQuestion:YES];
+        }
+    }
+    else if ([notification.name isEqualToString:@"questionbeacon2found"])
+    {
+        // if question or last step view controller , ask if wants to stop and to start new question
+        if ([self.topViewController isKindOfClass:[QuestionTypeViewController class]] || [self.topViewController isKindOfClass:[LastStepViewController class]])
+        {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"A new BeaconServe survey is available would you like to discard your current answers and start the new survey ?" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                
+                [CATransaction begin];
+                [CATransaction setCompletionBlock:^{
+                    [self startQuestion:NO];
+                }];
+                
+                for (UIViewController *vc in self.navigationController.viewControllers)
+                {
+                    if ([vc isKindOfClass:[StartProjectViewController class]])
+                    {
+                        [self.navigationController popToViewController:vc animated:YES];
+                    }
+                }
+                
+                [CATransaction commit];
+                
+            }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            }]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }
+        else
+        {
+            [self startQuestion:NO];
         }
     }
 
 }
 
-- (void)startQuestion
+- (void)startQuestion:(BOOL)isBeaconOneTwo
 {
+    if (isBeaconOneTwo)
+        [[Global sharedManager] setParam:@"beacon1" forKey:@"beacon"];
+    else
+        [[Global sharedManager] setParam:@"beacon2" forKey:@"beacon"];
+
     [[Global sharedManager] setParam:@(1) forKey:kQuestionIndex];
     NSMutableArray *anwserArr = [NSMutableArray new];
     [[Global sharedManager] setParam:anwserArr forKey:kAnswerArray];
