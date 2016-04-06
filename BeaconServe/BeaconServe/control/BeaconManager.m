@@ -104,6 +104,7 @@
             {
                 //if ([[Global sharedManager] enteredStore])
                 {
+
                     [[Global sharedManager] setDetectedLocation:YES];
                     // record beacon number to CSV file
                     [[Global sharedManager] setParam:[NSString stringWithFormat:@"%ld" ,(long)itemData.deviceNumber] forKey:kClosestQuestionBeaconNumber];

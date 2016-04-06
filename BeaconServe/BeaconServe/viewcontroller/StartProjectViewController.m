@@ -82,6 +82,8 @@
     
     [[BeaconManager sharedManager] stopItems];
     [[BeaconManager sharedManager] startItems];
+    
+
 }
 
 - (void)setFont

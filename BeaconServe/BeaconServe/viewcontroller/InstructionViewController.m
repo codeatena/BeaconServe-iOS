@@ -7,6 +7,7 @@
 //
 
 #import "InstructionViewController.h"
+#import "AppDelegate.h"
 
 @interface InstructionViewController ()
 
@@ -66,6 +67,10 @@
     [[Global sharedManager] initParams];
     [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
     [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
+    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate stopTimer];
+    [delegate startTimer];
     
     [self performSegueWithIdentifier:@"startSegue1" sender:nil];
 }
