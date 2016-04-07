@@ -48,7 +48,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
 }
 
 - (void)setFont
@@ -67,6 +66,8 @@
     [[Global sharedManager] initParams];
     [[Global sharedManager] setParam:[NSMutableArray new] forKey:kClosestBeaconArray];
     [[Global sharedManager] removeParam:kClosestQuestionBeaconNumber];
+    
+    [[BeaconManager sharedManager] invalidLastBeacon];
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     [delegate stopTimer];
